@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,5 +27,3 @@ Route::get('/admin/users/index','admin\UsersController@index');
 Route::get('/admin/users/edit/{id}','admin\UsersController@edit');
 Route::PUT('/admin/users/update/{id}','admin\UsersController@update');
 
-// 后台删除
-Route::post('/admin/users/destroy/{id}','admin\UsersController@destroy');
