@@ -43,7 +43,6 @@ Route::get('/admin/link/edit/{id}','admin\LinkController@edit');
 Route::post('/admin/link/update/{id}','admin\LinkController@update');
 // 删除友情链接
 Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
-Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
 
 // 前台首页
 Route::get('home/index/index','home\IndexController@index');
