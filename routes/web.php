@@ -44,3 +44,19 @@ Route::post('/admin/link/update/{id}','admin\LinkController@update');
 // 删除友情链接
 Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
 Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
+
+// 前台首页
+Route::get('home/index/index','home\IndexController@index');
+//前台登录
+Route::get('home/login/login','home\LoginController@login');
+Route::get('home/login/dologin','home\LoginController@dologin');
+// 前台注册
+Route::get('home/login/regist','home\LoginController@regist');
+// 前台列表页
+Route::get('home/cates/index','home\CatesController@index');
+// 我的关注
+Route::get('home/concern/index','home\ManageController@index');
+// 意见反馈
+Route::get('home/concern/complaint','home\ManageController@complaint');
+//后台登录
+Route::get('admin/login','admin\LoginController@login');
