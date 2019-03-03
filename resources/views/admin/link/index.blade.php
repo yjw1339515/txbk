@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="mws-panel grid_8">
-            <form action="/admin/users/index" method="get">
+            <form action="/admin/link/index" method="get">
                     <div class="mws-panel-header">
                         <span><i class="icon-table"></i>用户列表</span>
                     </div>
@@ -41,56 +41,34 @@
                             <thead>
                                 <tr>
                                     <th>编号</th>
-                                    <th>姓名</th>
-                                    <th>性别</th>
-                                    <th>权限</th>
-                                    <th>电话</th>
-                                    <th>注册时间</th>
+                                    <th>链接名称</th>
+                                    <th>链接地址</th>
+                                    <th>图片</th>
+                                    <th>创建时间</th>
                                     <th>操作</th>
                                 </tr>
-                            </thead>
-                            
+                            </thead>  
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
-    @foreach($users as $k=>$v)
+    @foreach($link as $k=>$v)
                         <tr>
-                            <td>{{$v->uid}}</td>   
-                            <td>{{$v->uname}}</td>  
-                            <td>
-                                    @if ($v->sex=='w')
-                                    女
-                                    @elseif ($v->sex=='m')
-                                    男
-                                    @else
-                                    保密
-                                    @endif
-                            </td>    
-                            <td>
-                                    @if($v->auth =='1')
-                                        超级管理员
-                                    @elseif($v->auth=='2')
-                                    商家用户
-                                    @else
-                                    普通用户
-                                    @endif
-                            </td>   
-                            <td>{{$v->tel}}</td>    
+
+                            <td>{{$v->id}}</td>   
+                            <td>{{$v->title}}</td>  
+                            <td>{{$v->url}}</td>    
+                            <td><img src="{{$v->images}}" alt=""></td>    
                             <td>{{$v->created_at}}</td> 
+
                             <td>
-                                <form action="/admin/users/destroy/{{ $v->uid }}" method="post" accept-charset="utf-8" style="display: inline-block;">
+                                <form action="/admin/link/destroy/{{ $v->id }}" method="post" accept-charset="utf-8" style="display: inline-block;">
                                     {{ csrf_field() }}
                                 <input type="submit"  value="删除" class="btn btn-danger">
                                 </form>
-                                <a href="/admin/users/edit/{{ $v->uid }}" class="btn btn-warning">修改</a>
+                                <a href="/admin/link/edit/{{ $v->id }}" class="btn btn-warning">修改</a>
                             </td>
                         </tr>
             @endforeach
                             </tbody>
                         </table>
-                  <!--       <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate"><a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_1_first">First</a><a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_1_previous">Previous</a><span><a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a><a tabindex="0" class="paginate_button">4</a><a tabindex="0" class="paginate_button">5</a></span><a tabindex="0" class="next paginate_button" id="DataTables_Table_1_next">Next</a><a tabindex="0" class="last paginate_button" id="DataTables_Table_1_last">Last</a></div> -->
-                        <div id="page_page">
-                            
-                            {{  $users->appends($request)->links()  }}
-                        </div>
                         
                         </div>
                     </div>

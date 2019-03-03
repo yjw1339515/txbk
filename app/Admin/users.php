@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class users extends Model
 {
-    protected $table = 'users';
+        protected $table = 'users';
     protected $pk     = 'uid'; 
     protected $fillable = ['auth','sex','email','tel','upwd','uname'];
 }
