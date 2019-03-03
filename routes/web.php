@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//后台登录
+Route::get('admin/login','admin\LoginController@login');
 //后台默认显示页面
 Route::get('admin','admin\IndexController@Index');
 
@@ -57,5 +59,5 @@ Route::get('home/cates/index','home\CatesController@index');
 Route::get('home/concern/index','home\ManageController@index');
 // 意见反馈
 Route::get('home/concern/complaint','home\ManageController@complaint');
-//后台登录
-Route::get('admin/login','admin\LoginController@login');
+Route::get('home/goods/detail','home\GoodsController@detail');
+
