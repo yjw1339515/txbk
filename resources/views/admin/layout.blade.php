@@ -113,7 +113,7 @@
                     <li>
                         <a href="#"><i class="icon-users"></i> 用户管理</a>
                         <ul>
-                            <li><a href="/admin/users/index">用户列表</a></li>
+                            <li><a href="/admin/users">用户列表</a></li>
                             <li><a href="/admin/users/create">用户添加</a></li>
                         </ul>
                     </li>
@@ -143,13 +143,6 @@
                         <ul>
                             <li><a href="/tjws">推荐位列表</a></li>
                             <li><a href="/tjws/create">推荐位添加</a></li>
-                        </ul>
-                    </li>                     
-                    <li>
-                        <a href="#"><i class="icon-globe"></i> 友情链接管理</a>
-                        <ul>
-                            <li><a href="/admin/link/index">友情链接列表</a></li>
-                            <li><a href="/admin/link/create">友情链接添加</a></li>
                         </ul>
                     </li>
                      <li>
