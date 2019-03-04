@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//后台登录
+//后台登录   (本人一部分开始)
 Route::get('admin/login','admin\LoginController@login');
 //后台默认显示页面
 Route::get('admin','admin\IndexController@Index');
@@ -45,6 +45,7 @@ Route::get('/admin/link/edit/{id}','admin\LinkController@edit');
 Route::post('/admin/link/update/{id}','admin\LinkController@update');
 // 删除友情链接
 Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
+// (本人一部分结束)
 
 // 前台首页
 Route::get('home/index/index','home\IndexController@index');
@@ -59,5 +60,6 @@ Route::get('home/cates/index','home\CatesController@index');
 Route::get('home/concern/index','home\ManageController@index');
 // 意见反馈
 Route::get('home/concern/complaint','home\ManageController@complaint');
-Route::get('home/goods/detail','home\GoodsController@detail');
 
+// 前台详情页   本人二次
+Route::get('home/goods/detail','home\GoodsController@detail');
