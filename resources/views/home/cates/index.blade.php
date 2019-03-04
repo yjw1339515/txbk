@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <div class="img"><a href="#"><img src="/static/home/images/his_3.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                	<div class="name"><a href="/home/goods/detasil/{goodsid}">Dior/迪奥香水2件套装</a></div>
                     <div class="price">
                     	<font>￥<span>680.00</span></font> &nbsp; 18R
                     </div>
