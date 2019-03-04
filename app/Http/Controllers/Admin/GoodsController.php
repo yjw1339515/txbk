@@ -23,7 +23,7 @@ class GoodsController extends Controller
 
         $data = Goods::where('gname','like','%'.$search.'%')->paginate($count);
 
-        return view('Admin.goods_index',['data'=>$data,'request'=>$request->all()]);
+        return view('admin.goods.index',['data'=>$data,'request'=>$request->all()]);
     }
 
     /**
@@ -33,7 +33,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        return view('Admin/goods_create');
+        return view('admin.goods.create');
     }
 
     /**
@@ -90,7 +90,7 @@ class GoodsController extends Controller
     {
         
         $data = Goods::find($id);
-        return view('Admin.goods_edit',['data'=>$data]);
+        return view('admin.goods.edit',['data'=>$data]);
     }
 
     /**

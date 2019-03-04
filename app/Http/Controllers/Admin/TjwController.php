@@ -19,7 +19,7 @@ class TjwController extends Controller
     public function index()
     {
         $data = Tjws::all();
-        return view('Admin.tjws_index',['data'=>$data]);
+        return view('admin.tjws.index',['data'=>$data]);
     }
 
     /**
@@ -29,7 +29,7 @@ class TjwController extends Controller
      */
     public function create()
     {
-        return view('Admin.tjws_create');
+        return view('admin.tjws.create');
     }
 
     /**
@@ -75,7 +75,7 @@ class TjwController extends Controller
     public function edit($id)
     {
         $data = Tjws::find($id);
-        return view('Admin.tjws_edit',['data'=>$data]);
+        return view('admin.tjws.edit',['data'=>$data]);
     }
 
     /**

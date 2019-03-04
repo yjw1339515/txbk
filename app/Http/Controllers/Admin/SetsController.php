@@ -17,7 +17,7 @@ class SetsController extends Controller
     public function index()
     {
         $data = Sets::all();
-        return view('Admin.sets_index',['data'=>$data]);
+        return view('admin.sets.index',['data'=>$data]);
     }
 
     /**
@@ -60,7 +60,7 @@ class SetsController extends Controller
      */
     public function edit($id)
     {    $data = Sets::find($id);  
-        return view('Admin.sets_edit',['data'=>$data]); 
+        return view('admin.sets.edit',['data'=>$data]); 
     }
 
     /**

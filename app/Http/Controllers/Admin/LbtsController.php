@@ -18,7 +18,7 @@ class LbtsController extends Controller
     public function index()
     {
         $data = Lbts::all(); 
-        return view('Admin.lbts_index',['data'=>$data]);
+        return view('admin.lbts.index',['data'=>$data]);
     }
 
     /**
@@ -28,7 +28,7 @@ class LbtsController extends Controller
      */
     public function create()
     {
-            return view('Admin.Lbts_create');
+            return view('admin.Lbts.create');
     }
 
     /**
@@ -75,7 +75,7 @@ class LbtsController extends Controller
     public function edit($id)
     {
         $data = Lbts::find($id);
-        return view('Admin.lbts_edit',['data'=>$data]);
+        return view('admin.lbts.edit',['data'=>$data]);
     }
 
     /**

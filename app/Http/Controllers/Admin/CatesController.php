@@ -28,7 +28,7 @@ class CatesController extends Controller
     {
        // $cates_data = Cates::all();
       
-      return view('Admin.cates_index',['cates_data'=>self::getCates()]);
+      return view('admin.cates.index',['cates_data'=>self::getCates()]);
     }
 
     /**
@@ -39,7 +39,7 @@ class CatesController extends Controller
     public function create($id = 0)
     {
           $cates_data =Cates::all();
-        return view('Admin.cates_create',['id'=>$id,'cates_data'=>self::getCates()]);
+        return view('admin.cates.create',['id'=>$id,'cates_data'=>self::getCates()]);
     }
 
     /**
