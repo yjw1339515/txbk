@@ -63,3 +63,18 @@ Route::get('home/concern/complaint','home\ManageController@complaint');
 
 // 前台详情页   本人二次
 Route::get('home/goods/detail','home\GoodsController@detail');
+
+
+// 云飞路由
+//类别路由
+Route::get('/cates/create/{id}','admin\CatesController@create');
+Route::resource('cates','admin\CatesController');
+//商品路由
+Route::get('/goods','admin\GoodsController@index');
+Route::resource('goods','admin\GoodsController');
+//轮播图管理
+Route::resource('lbts','admin\LbtsController');
+//推荐位管理
+Route::resource('tjws','admin\TjwController');
+//网站配置管理
+Route::resource('sets','admin\SetsController');
