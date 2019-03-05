@@ -59,6 +59,7 @@ class UsersController extends Controller
         $res = $users->save();
 
         if($res){
+            DB::commit();
             return redirect('admin/users/index')->with('success','添加成功!');
         }else{
             DB::rollBack();

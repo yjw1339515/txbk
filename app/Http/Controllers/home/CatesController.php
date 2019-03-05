@@ -4,6 +4,9 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Admin\Goods;
+use App\Admin\Cates;
+
 
 class CatesController extends Controller
 {
@@ -12,9 +15,12 @@ class CatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('/home/cates/index');
+        
+        $goods = Goods::where('cid','=',$id)->get();
+        // dd($data);
+        return view('/home/cates/index',['goods'=>$goods]);
     }
 
     /**
