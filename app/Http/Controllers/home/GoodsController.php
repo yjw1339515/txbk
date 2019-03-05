@@ -12,9 +12,10 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail()
+    public function detail($id)
     {
-        // $goods = Goods::where('gid',$id)->first();
+        echo $id;die;
+        $goods = Goods::where('gid',$id)->first();
         if(true){
             return view('home.goods.detail');
         } 
