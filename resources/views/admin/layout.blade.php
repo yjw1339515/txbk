@@ -145,6 +145,13 @@
                             <li><a href="/tjws/create">推荐位添加</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>友情链接管理</a>
+                        <ul>
+                            <li><a href="/admin/link/index">友情链接列表</a></li>
+                            <li><a href="/admin/link/create">友情链接添加</a></li>
+                        </ul>
+                    </li>
                      <li>
                         <a href="#"><i class="icon-tools"></i> 网站配置管理</a>
                         <ul>

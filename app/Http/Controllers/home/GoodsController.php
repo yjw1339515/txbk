@@ -14,13 +14,30 @@ class GoodsController extends Controller
      */
     public function detail()
     {
+        // $goods = Goods::where('gid',$id)->first();
         if(true){
             return view('home.goods.detail');
+        } 
+    }
+
+      public function car()
+    {
+        // $goods = Goods::where('gid',$id)->first();
+        if(true){
+            return view('home.goods.car');
         }
         
         
     }
-
+          public function orders()
+    {
+        // $goods = Goods::where('gid',$id)->first();
+        if(true){
+            return view('home.goods.orders');
+        }
+        
+        
+    }
     /**
      * Show the form for creating a new resource.
      *
