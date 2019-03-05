@@ -159,6 +159,14 @@
                             
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="icon-globe"></i> 意见箱管理</a>
+                        <ul>
+                            <li><a href="/admin/advices">意见箱列表</a></li>
+                            <li><a href="/admin/advices/reback">回收站列表</a></li>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>         
         </div>
