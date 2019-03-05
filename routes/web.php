@@ -78,3 +78,7 @@ Route::resource('lbts','admin\LbtsController');
 Route::resource('tjws','admin\TjwController');
 //网站配置管理
 Route::resource('sets','admin\SetsController');
+//意见箱管理
+ 
+ Route::get('/admin/advices/reback','admin\AdvicesController@edit');
+ Route::resource('admin/advices','admin\AdvicesController');
