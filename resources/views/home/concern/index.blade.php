@@ -1,4 +1,4 @@
-@extends('home.index.index')
+@extends('home.layout')
 @section('content')
     
 <div class="i_bg bg_color">

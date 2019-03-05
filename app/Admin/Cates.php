@@ -8,6 +8,7 @@ use App\Admin\Goods;
 class Cates extends Model
 {
     public $table='shop_cates';
+
      //一对多
     public function Many()
     {

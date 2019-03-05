@@ -11,6 +11,7 @@ class Goods extends Model
 
 
 
+
       public function goods()
     {
         return $this->belongsTo('app\Admin\Cates','cid');

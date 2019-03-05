@@ -51,11 +51,13 @@ Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
 Route::get('home/index/index','home\IndexController@index');
 //前台登录
 Route::get('home/login/login','home\LoginController@login');
-Route::get('home/login/dologin','home\LoginController@dologin');
+Route::post('home/login/dologin','home\LoginController@dologin');
+// 前台退出
+Route::post('home/login/logout','home\LoginController@logout');
 // 前台注册
 Route::get('home/login/regist','home\LoginController@regist');
 // 前台列表页
-Route::get('home/cates/index','home\CatesController@index');
+Route::get('home/cates/index/{id}','home\CatesController@index');
 // 我的关注
 Route::get('home/concern/index','home\ManageController@index');
 // 意见反馈
