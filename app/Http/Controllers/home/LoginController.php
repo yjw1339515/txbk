@@ -36,21 +36,23 @@ class LoginController extends Controller
         // 通过用户名获取数据
         $users = Users::where('uname','=', $uname)->get();
 
+
         // 密码对比
         if (!Hash::check($upwd, $users[0]->upwd)) {
             // 密码对比...
             return back()->with('error','密码错误!');
         }
         
-        // 添加到session
-       if($users){
-            session('homeFlag',true);
-            
-            session('homeUsers',$users[0]);
-            // $data = $request->session()->all();
-            // dd($data);die;
+        // 判断users是否有数据
+        if($users){
+            $data = $users[0];
+            //把数据存入session
+            session(['homeUsers'=> $data]); 
+            // 成功后跳转
             return redirect('/home/index/index')->with('success','添加成功!');
         }
+       
+      
         
     }
      /**
@@ -60,7 +62,9 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->session()->flush();
+        $request->session()->forget('homeUsers');
+
+        return view('/home/index/index');
         
     }
     /**

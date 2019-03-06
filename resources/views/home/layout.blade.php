@@ -49,7 +49,7 @@
         <span class="fr">
                 @if (session()->all())
                
-                <span class="fl">你好，{{session('Users.uname')}}<a href="/home/login/logout">退出</a>&nbsp;
+                <span class="fl">你好，{{ session('homeUsers.uname') }}<a href="/home/login/logout">退出</a>&nbsp;
               
                 @else
                 <span class="fl">你好，请<a href="/home/login/login">登录</a>&nbsp;
