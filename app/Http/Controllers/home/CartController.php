@@ -6,44 +6,40 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Goods;
 use App\Admin\Cart;
+use App\Admin\Users;
 
-class GoodsController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail($id)
+       public function car(Request $request,$id)
     {
-        // 接受数据
-        $goods = Goods::where('id',$id)->first();
-        // 显示页面
-            return view('home.goods.detail',['goods'=>$goods]);
-    }
+        // $data->$cnt = $request->input('_token');
+        $data = Goods::find($id);
+        $user = Users::find($id);
+        $cart = new Cart;
+        // $users->uname = $data['uname']; 
+        $cart->gname = $data['gname'];
+        $cart->cid = $data['id'];
+        $cart->gprice = $data['gprice'];
+        $cart->cnt = $request->input('cnt');
+        $cart->gid = $user['uid'];
+        dump($cart);die;
 
-    //   public function car(Request $request,$id)
-    // {
-    //    //dump($request->all());die;
-    //     dd($request->input('cnt'));
-    //     $goods = Goods::find($id);
-    //     //dump($goods);die;
-    //     $goods->cnt = $request->input('cnt');
-    //     dump($goods);die;
-    //     return view('home.goods.car',['goods'=>$goods]);
+        $res = $cart->save();
+        // $goods = Goods::find($id);
+        // //dump($goods);die;
+        // $goods->cnt = $request->input('cnt');
+        // dump($goods);die;
+        // return view('home.goods.car',['goods'=>$goods]);
 
-        
-        
-    // }
-          public function orders()
-    {
-        // $goods = Goods::where('gid',$id)->first();
-        if(true){
-            return view('home.goods.orders');
-        }
         
         
     }
+
     /**
      * Show the form for creating a new resource.
      *

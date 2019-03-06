@@ -3,10 +3,16 @@
 namespace App\Admin;
 
 use Illuminate\Database\Eloquent\Model;
-
-class users extends Model
+use App\Admin\Goods;
+class Users extends Model
 {
-        protected $table = 'users';
+    protected $table = 'users';
     protected $pk     = 'uid'; 
     protected $fillable = ['auth','sex','email','tel','upwd','uname'];
+
+         //一对多
+    public function Many()
+    {
+        return $this->hasMany('app\Admin\Goods','cid');
+    }
 }

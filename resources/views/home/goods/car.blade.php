@@ -462,18 +462,17 @@
     	<table border="0" class="car_tab" style="width:1200px; margin-bottom:50px;" cellspacing="0" cellpadding="0">
           <tr>
             <td class="car_th" width="490">商品名称</td>
-            <td class="car_th" width="140">属性</td>
             <td class="car_th" width="150">购买数量</td>
             <td class="car_th" width="130">小计</td>
-            <td class="car_th" width="140">返还积分</td>
             <td class="car_th" width="150">操作</td>
           </tr>
-          <tr>
+
+@foreach($goods as $k=>$v)
+        <tr>
             <td>
-            	<div class="c_s_img"><img src="/static/home/images/c_1.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
+            	<div class="c_s_img"><img src="/static/home/images/{{$goods->gpic}}" width="73" height="73" /></div>
+                {{$goods->gname}}
             </td>
-            <td align="center">颜色：灰色</td>
             <td align="center">
             	<div class="c_num">
                     <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
@@ -481,61 +480,10 @@
                     <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
                 </div>
             </td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center">26R</td>
-            <td align="center"><a onclick="ShowDiv('MyDiv','fade')">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr class="car_tr">
-            <td>
-            	<div class="c_s_img"><img src="/static/home/images/c_2.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center">26R</td>
-            <td align="center"><a href="#">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr>
-            <td>
-            	<div class="c_s_img"><img src="/static/home/images/c_3.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center">26R</td>
-            <td align="center"><a href="#">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
-          <tr class="car_tr">
-            <td>
-            	<div class="c_s_img"><img src="/static/home/images/c_4.jpg" width="73" height="73" /></div>
-                Rio 锐澳 水蜜桃味白兰地鸡尾酒（预调酒） 275ml
-            </td>
-            <td align="center">颜色：灰色</td>
-            <td align="center">
-            	<div class="c_num">
-                    <input type="button" value="" onclick="jianUpdate1(jq(this));" class="car_btn_1" />
-                	<input type="text" value="1" name="" class="car_ipt" />  
-                    <input type="button" value="" onclick="addUpdate1(jq(this));" class="car_btn_2" />
-                </div>
-            </td>
-            <td align="center" style="color:#ff4e00;">￥620.00</td>
-            <td align="center">26R</td>
-            <td align="center"><a href="#">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
-          </tr>
+            <td align="center" style="color:#ff4e00;">{{$goods->gprice}}</td>
+            <td align="center"><a onclick="ShowDiv('MyDiv','fade')">删除</a>&nbsp; &nbsp;<a href="#">关注</a></td>
+       </tr>
+@endforeach          
           <tr height="70">
           	<td colspan="6" style="font-family:'Microsoft YaHei'; border-bottom:0;">
             	<label class="r_rad"><input type="checkbox" name="clear" checked="checked" /></label><label class="r_txt">清空购物车</label>

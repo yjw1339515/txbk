@@ -162,10 +162,10 @@
 <div class="top">
     <div class="logo"><a href="Index.html"><img src="/static/home/images/logo.png" /></a></div>
     <div class="search">
-    	<form action="/goods/car" method="post">
+    <form action="/goods/car/{{$goods->id}}" method="post">
         	<input type="text" value="" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
-        </form>                      
+    </form>                      
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
     <div class="i_car">
@@ -468,33 +468,29 @@
     <div class="content">
     	                    
         <div id="tsShopContainer">
-            <div id="tsImgS"><a href="images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src= width="390" height="390" /></a></div>
+            <div id="tsImgS"><a href="images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="/static/home/images/{{ $goods->gpic }}"  width="390" height="390" /></a></div>
             <div id="tsPicContainer">
                 <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
                 <div id="tsImgSCon">
                     <ul>
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(1)" rel="MagicZoom"><img src="/static/home/images/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(2)" rel="MagicZoom"><img src="/static/home/images/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(3)" rel="MagicZoom"><img src="/static/home/images/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(4)" rel="MagicZoom"><img src="/static/home/images/ps1.jpg" tsImgS="images/ps1.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(5)" rel="MagicZoom"><img src="/static/home/images/ps2.jpg" tsImgS="images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(6)" rel="MagicZoom"><img src="/static/home/images/ps3.jpg" tsImgS="images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(7)" rel="MagicZoom"><img src="/static/home/images/ps4.jpg" tsImgS="images/ps4.jpg" width="79" height="79" /></li>
+                    @foreach ($goods as $k => $v)
+                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods->gpic}}" tsImgS="images/ps1.jpg" width="79" height="79" />
+                        </li>
+                    @endforeach
                     </ul>
                 </div>
                 <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
             </div>
-            <img class="MagicZoomLoading" width="16" height="16" src="/static/home/images/loading.gif" alt="Loading..." />				
+            <img class="MagicZoomLoading" width="16" height="16"  alt="Loading..." />				
         </div>
         
         <div class="pro_des">
         	<div class="des_name">
-            	<p></p>
-                
+            	<p>{{ $goods->gname }}</p>
+                    {{ $goods->gdesc }}
             </div> 
             <div class="des_price">
-            	本店价格：<b>￥589</b><br />
+            	本店价格：<b>{{ $goods->gprice }}</b><br />
                 消费积分：<span>28R</span>
             </div>
             <div class="des_choice">
@@ -517,23 +513,23 @@
             	<div class="d_sh">
                 	分享
                     <div class="d_sh_bg">
-                    	<a href="#"><img src="/static/home/images/sh_1.gif" /></a>
-                        <a href="#"><img src="/static/home/images/sh_2.gif" /></a>
-                        <a href="#"><img src="/static/home/images/sh_3.gif" /></a>
-                        <a href="#"><img src="/static/home/images/sh_4.gif" /></a>
-                        <a href="#"><img src="/static/home/images/sh_5.gif" /></a>
+
                     </div>
                 </div>
                 <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
             </div>
+            <form action="/home/cart/car/{{$goods->id}}" method="get">
+            {{ csrf_field() }}
             <div class="des_join">
-            	<div class="j_nums">
-                	<input type="text" value="1" name="" class="n_ipt" />
-                    <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
-                    <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
-                </div>
+            <div class="j_nums">
+                <input type="text" value="1" name="cnt" class="n_ipt" />
+                <input type="button"  onclick="addUpdate(jq(this));" class="n_btn_1" />
+                <input type="button"  onclick="jianUpdate(jq(this));" class="n_btn_2" />
+            </div>
                 <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="/static/home/images/j_car.png" /></a></span>
-            </div>            
+                <input type="submit"  value="加入到购物车" src="/static/home/images/j_car.png">
+            </div>    
+            </form>        
         </div>    
         
         <div class="s_brand">
@@ -803,9 +799,9 @@
                   	<td>&nbsp;</td>
                     <td><a href="#" class="b_sure">确定</a></td>
                   </tr>
-                </table>
-                    
+                </table>  
             </div>
+
         </div>
     </div>    
     <!--End 弹出层-收藏成功 End-->
@@ -818,8 +814,8 @@
             <div class="notice_t">
                 <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="/static/home/images/close.gif" /></span>
             </div>
-            <div class="notice_c">
-           		
+            <div class="notice_c">	
+
                 <table border="0" align="center" style="margin-top:;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
                     <td width="40"><img src="/static/home/images/suc.png" /></td>
@@ -828,10 +824,10 @@
                     	购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
                     </td>
                   </tr>
-                  <tr height="50" valign="bottom">
-                  	<td>&nbsp;</td>
-                    <td><a href="#" class="b_sure">去购物车结算</a><a href="#" class="b_buy">继续购物</a></td>
-                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td><a href="/home/goods/car/{{$goods->id}}" class="b_sure">去购物车结算</a><a href="/home/index/index" class="b_buy">继续购物</a></td>
+                  </tr> 
                 </table>
                     
             </div>

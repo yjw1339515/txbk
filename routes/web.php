@@ -85,7 +85,8 @@ Route::get('home/concern/complaint','home\ManageController@complaint');
 
 // 前台详情页   本人二次
 Route::get('home/goods/detail/{id}','home\GoodsController@detail');
-Route::get('home/goods/car','home\GoodsController@car');
+// 加入到购物车
+Route::get('home/cart/car/{id}','home\CartController@car');
 Route::get('home/goods/orders','home\GoodsController@orders');
 
 
