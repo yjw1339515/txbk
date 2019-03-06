@@ -76,8 +76,11 @@
                             <td>{{$v->tel}}</td>    
                             <td>{{$v->created_at}}</td> 
                             <td>
-                                <a href="" class="btn btn-danger">删除</a>
-                                <a href="" class="btn btn-warning">修改</a>
+                                <form action="/admin/users/destroy/{{ $v->uid }}" method="post" accept-charset="utf-8" style="display: inline-block;">
+                                    {{ csrf_field() }}
+                                <input type="submit"  value="删除" class="btn btn-danger">
+                                </form>
+                                <a href="/admin/users/edit/{{ $v->uid }}" class="btn btn-warning">修改</a>
                             </td>
                         </tr>
             @endforeach

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Users;
+use App\Admin\Users;
 use DB;
 use Hash;
 use App\Http\Requests\UsersStoreRequest;
@@ -23,7 +23,7 @@ class UsersController extends Controller
 
         // dump($users);
         // 遍历显示表格
-        return view('admin/users/index',['users'=>$users,'request'=>$request->all()]);
+        return view('admin.users.index',['users'=>$users,'request'=>$request->all()]);
     }
 
     /**
@@ -33,7 +33,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users/create');
+        return view('admin.users.create');
     }
 
     /**
@@ -44,6 +44,12 @@ class UsersController extends Controller
      */
     public function store(UsersStoreRequest $request)
     {
+         /*
+            开启事务   DB::beginTransaction();
+            提交事务    DB::commit()
+            回滚事务   DB::rollBack()
+
+         */
         // dump($request->all());die;
         DB::beginTransaction();
         // 接受数据
@@ -56,6 +62,7 @@ class UsersController extends Controller
         $users->upwd = Hash::make($data['upwd']); 
         $users->email = $data['email']; 
         $users->tel = $data['tel']; 
+        $id = $users->id;//接收返回的id号
         $res = $users->save();
 
         if($res){
@@ -103,7 +110,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        //dump($request);
+        DB::beginTransaction();
+
+        //$users = Users::where('uid',$id)->first();
+
+        $users = DB::table('users')->where('uid',$id)->update($request->except('_method','_token'));
+        
+
+        // dump($users);
+        if($users){
+            DB::commit();
+            return redirect('admin/users/index')->with('success','修改成功!');
+        }else{
+            DB::rollBack();
+             return back()->with('error','修改失败!');
+        }
+      
+
+
     }
 
     /**
@@ -114,6 +139,18 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $url = $_SERVER['HTTP_REFERER'];
+        DB::beginTransaction();
+        // $users = Users::where('uid',$id)->first();
+        // $res = Users::destroy($users);
+        $res = DB::table('users')->where('uid', '=', $id)->delete();
+        if($res){
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功!');
+        }else{
+            DB::rollBack();
+             return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败!');
+        }
     }
 }

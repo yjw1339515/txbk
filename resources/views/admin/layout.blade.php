@@ -113,9 +113,59 @@
                     <li>
                         <a href="#"><i class="icon-users"></i> 用户管理</a>
                         <ul>
+                            <li><a href="/admin/users">用户列表</a></li>
                             <li><a href="/admin/users/create">用户添加</a></li>
-                            <li><a href="/admin/users/index">用户列表</a></li>
+                        </ul>
+                    </li>
+                      <li>
+                        <a href="#"><i class="icon-th-list"></i> 类别管理</a>
                         <ul>
+                            <li><a href="/cates">类别列表</a></li>
+                            <li><a href="/cates/create">类别添加</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-lollipop"></i> 商品管理</a>
+                        <ul>
+                            <li><a href="/goods">商品列表</a></li>
+                            <li><a href="/goods/create">商品添加</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-cd"></i> 轮播图管理</a>
+                        <ul>
+                            <li><a href="/lbts">轮播图列表</a></li>
+                            <li><a href="/lbts/create">轮播图添加</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="icon-users"></i> 友情链接管理</a>
+                        <ul>
+                            <li><a href="/admin/link/index">友情链接列表</a></li>
+                            <li><a href="/admin/link/create">友情链接添加</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="icon-globe"></i> 推荐位管理</a>
+                        <ul>
+                            <li><a href="/tjws">推荐位列表</a></li>
+                            <li><a href="/tjws/create">推荐位添加</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="icon-tools"></i> 网站配置管理</a>
+                        <ul>
+                            <li><a href="/sets">网站信息列表</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-globe"></i> 意见箱管理</a>
+                        <ul>
+                            <li><a href="/admin/advices">意见箱列表</a></li>
+                            <li><a href="/admin/advices/reback">回收站列表</a></li>
+                            
+                        </ul>
                     </li>
                 </ul>
             </div>         
@@ -136,8 +186,9 @@
                 </div>
             @endif
              <!-- 显示错误消息 结束 -->
+             
             @section('content')
-                其味无穷二无群二无群二
+
             @show
         </div>
         <!-- 内容 结束 -->

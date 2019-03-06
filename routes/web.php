@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//后台登录   (本人一部分开始)
+Route::get('admin/login','admin\LoginController@login');
 //后台默认显示页面
 Route::get('admin','admin\IndexController@Index');
 
@@ -27,75 +29,43 @@ Route::get('/admin/users/index','admin\UsersController@index');
 Route::get('/admin/users/edit/{id}','admin\UsersController@edit');
 Route::PUT('/admin/users/update/{id}','admin\UsersController@update');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 后台用户删除
+Route::post('/admin/users/destroy/{id}','admin\UsersController@destroy');
+
+
+// 链接管理
+// 添加链接
+Route::get('/admin/link/create','admin\LinkController@create');
+Route::post('/admin/link/store','admin\LinkController@store');
+
+// 链接列表
+Route::get('/admin/link/index','admin\LinkController@index');
+// 链接修改
+Route::get('/admin/link/edit/{id}','admin\LinkController@edit');
+Route::post('/admin/link/update/{id}','admin\LinkController@update');
+// 删除友情链接
+Route::post('/admin/link/destroy/{id}','admin\LinkController@destroy');
+// (本人一部分结束)
+
+
+// 云飞路由
+//类别路由
+Route::get('/cates/create/{id}','admin\CatesController@create');
+Route::resource('cates','admin\CatesController');
+//商品路由
+Route::get('/goods','admin\GoodsController@index');
+Route::resource('goods','admin\GoodsController');
+//轮播图管理
+Route::resource('lbts','admin\LbtsController');
+//推荐位管理
+Route::resource('tjws','admin\TjwController');
+//网站配置管理
+Route::resource('sets','admin\SetsController');
+//意见箱管理
+ Route::get('/admin/advices/reback','admin\AdvicesController@edit');
+ Route::resource('admin/advices','admin\AdvicesController');
+
+// 佳旗前台路由
 
 // 前台首页
 Route::get('home/index/index','home\IndexController@index');
@@ -112,5 +82,11 @@ Route::get('home/cates/index/{id}','home\CatesController@index');
 Route::get('home/concern/index','home\ManageController@index');
 // 意见反馈
 Route::get('home/concern/complaint','home\ManageController@complaint');
-//后台登录
-Route::get('admin/login','admin\LoginController@login');
+
+// 前台详情页   本人二次
+Route::get('home/goods/detail/{id}','home\GoodsController@detail');
+Route::get('home/goods/car','home\GoodsController@car');
+Route::get('home/goods/orders','home\GoodsController@orders');
+
+
+

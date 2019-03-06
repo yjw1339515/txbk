@@ -1,21 +1,44 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class QweController extends Controller
+class GoodsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function detail($id)
     {
-        //
+        echo $id;die;
+        $goods = Goods::where('gid',$id)->first();
+        if(true){
+            return view('home.goods.detail');
+        } 
     }
 
+      public function car()
+    {
+        // $goods = Goods::where('gid',$id)->first();
+        if(true){
+            return view('home.goods.car');
+        }
+        
+        
+    }
+          public function orders()
+    {
+        // $goods = Goods::where('gid',$id)->first();
+        if(true){
+            return view('home.goods.orders');
+        }
+        
+        
+    }
     /**
      * Show the form for creating a new resource.
      *
