@@ -26,9 +26,8 @@
     <script type="text/javascript" src="/static/home/js/bban.js"></script>
     <script type="text/javascript" src="/static/home/js/hban.js"></script>
     <script type="text/javascript" src="/static/home/js/tban.js"></script>
-    
+   
 	<script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
-    
     
 <title>尤洪</title>
 </head>
@@ -71,7 +70,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.html"><img src="/static/home/images/logo.png" /></a></div>
+    <div class="logo"><a href="/home/index/index"><img src="/static/home/images/logo.png" /></a></div>
     <div class="search">
     	<form>
         	<input type="text" value="" class="s_ipt" />
@@ -116,8 +115,11 @@
     	<!--Begin 商品分类详情 Begin-->    
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
+            @if (!empty($show))
             <div class="leftNav">
-                
+            @else
+            <div class="leftNav none">
+            @endif
                 <ul> 
                     @foreach ( $common_cates_data as $k => $v)
                                  
