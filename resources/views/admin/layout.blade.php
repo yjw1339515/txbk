@@ -70,12 +70,12 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        你好, 管理员
+                        你好, {{session('homeUsers.uname')}}
                     </div>
                     <ul>
                         <li><a href="#">头像</a></li>
                         <li><a href="#">更换密码</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/login/logout">退出</a></li>
                     </ul>
                 </div>
             </div>
