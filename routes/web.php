@@ -112,3 +112,12 @@ Route::get('home/orders/index','home\OrdersController@index');
 
 // 删除订单
 Route::get('home/orders/del/{oid}','home\OrdersController@del');
+
+//刘伟翰 路由
+//前台 排行榜
+Route::resource('phb','home\PhbController');
+//后台 排行榜管理 列表显示
+Route::resource('admin/phb','admin\PhbController');
+//后台 排行榜修改
+Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
+Route::post('/admin/phb/update/{id}','admin\PhbController@update');

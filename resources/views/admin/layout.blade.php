@@ -43,30 +43,30 @@
 
     <!-- Header -->
     <div id="mws-header" class="clearfix">
-    
+
         <!-- Logo Container -->
         <div id="mws-logo-container">
-        
+
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
                 <img src="/static/admin/images/mws-logo.png" alt="mws admin">
             </div>
         </div>
-        
+
         <!-- User Tools (notifications, logout, profile, change password) -->
         <div id="mws-user-tools" class="clearfix">
-        
-            
-            
-         
+
+
+
+
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
-            
+
                 <!-- User Photo -->
                 <div id="mws-user-photo">
                     <img src="/static/admin/example/profile.jpg" alt="User Photo">
                 </div>
-                
+
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
@@ -81,24 +81,24 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
-    
+
         <!-- Necessary markup, do not remove -->
         <div id="mws-sidebar-stitch"></div>
         <div id="mws-sidebar-bg"></div>
-        
+
         <!-- Sidebar Wrapper -->
         <div id="mws-sidebar">
-        
+
             <!-- Hidden Nav Collapse Button -->
             <div id="mws-nav-collapse">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            
+
             <!-- Searchbox -->
             <div id="mws-searchbox" class="mws-inset">
                 <form action="typography.html">
@@ -106,7 +106,7 @@
                     <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
                 </form>
             </div>
-            
+
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
@@ -152,11 +152,18 @@
                             <li><a href="/tjws/create">推荐位添加</a></li>
                         </ul>
                     </li>
+                    <li>
+                       <a href="#"><i class="icon-flag"></i> 排行榜管理</a>
+                       <ul>
+                           <li><a href="/admin/phb">排行榜列表</a></li>
+                           <li><a href="/admin/phb/edit">排行榜管理</a></li>
+                       </ul>
+                   </li>
                      <li>
                         <a href="#"><i class="icon-tools"></i> 网站配置管理</a>
                         <ul>
                             <li><a href="/sets">网站信息列表</a></li>
-                            
+
                         </ul>
                     </li>
                     <li>
@@ -164,13 +171,13 @@
                         <ul>
                             <li><a href="/admin/advices">意见箱列表</a></li>
                             <li><a href="/admin/advices/reback">回收站列表</a></li>
-                            
+
                         </ul>
                     </li>
                 </ul>
-            </div>         
+            </div>
         </div>
-        
+
         <!-- 内容 开始 -->
         <div id="mws-container" class="clearfix">
             <!-- 显示错误消息 开始 -->
@@ -186,17 +193,17 @@
                 </div>
             @endif
              <!-- 显示错误消息 结束 -->
-             
+
             @section('content')
 
             @show
         </div>
         <!-- 内容 结束 -->
-           
-            
+
+
         </div>
         <!-- Main Container End -->
-        
+
     </div>
 
     <!-- JavaScript Plugins -->
@@ -204,7 +211,7 @@
     <script src="/static/admin/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/static/admin/js/libs/jquery.placeholder.min.js"></script>
     <script src="/static/admin/custom-plugins/fileinput.js"></script>
-    
+
     <!-- jQuery-UI Dependent Scripts -->
     <script src="/static/admin/jui/js/jquery-ui-1.9.2.min.js"></script>
     <script src="/static/admin/jui/jquery-ui.custom.min.js"></script>
@@ -236,4 +243,3 @@
 
 </body>
 </html>
-
