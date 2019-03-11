@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 //后台登录   (本人一部分开始)
 Route::get('admin/login','admin\LoginController@login');
+Route::post('admin/login/dologin','admin\LoginController@dologin');
+// 退出登录
+Route::get('admin/login/logout','admin\LoginController@logout');
+
 //后台默认显示页面
 Route::get('admin','admin\IndexController@Index');
 
@@ -73,12 +77,14 @@ Route::get('home/index/index','home\IndexController@index');
 Route::get('home/login/login','home\LoginController@login');
 Route::post('home/login/dologin','home\LoginController@dologin');
 // 前台退出
-Route::post('home/login/logout','home\LoginController@logout');
+Route::get('home/login/logout','home\LoginController@logout');
+
 // 前台注册
 Route::get('home/login/regist','home\LoginController@regist');
 // 前台列表页
 Route::get('home/cates/index/{id}','home\CatesController@index');
 // 我的关注
+Route::resource('home/concern','home\ManageController');
 Route::get('home/concern/index','home\ManageController@index');
 // 意见反馈
 Route::get('home/concern/complaint','home\ManageController@complaint');

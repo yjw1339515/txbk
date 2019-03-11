@@ -49,7 +49,7 @@ class LoginController extends Controller
             //把数据存入session
             session(['homeUsers'=> $data]); 
             // 成功后跳转
-            return redirect('/home/index/index')->with('success','添加成功!');
+            return redirect('/home/index/index')->with('success','登录成功!');
         }
        
       
@@ -60,12 +60,12 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        $request->session()->forget('homeUsers');
+       
+       session()->flush();
 
-        return view('/home/index/index');
-        
+        return redirect('/home/index/index')->with('success','退出成功!');
     }
     /**
      * Store a newly created resource in storage.

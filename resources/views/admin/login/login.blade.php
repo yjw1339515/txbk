@@ -29,20 +29,21 @@
             <h1>后台登录</h1>
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
-                <form class="mws-form" action="dashboard.html" method="post">
+                <form class="mws-form" action="/admin/login/dologin" method="post">
+                    {{csrf_field()}}
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="text" name="username" class="mws-login-username required" placeholder="用户名">
+                            <input type="text" name="uname" class="mws-login-username required" placeholder="用户名">
                         </div>
                     </div>
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="password" name="password" class="mws-login-password required" placeholder="密码">
+                            <input type="password" name="upwd" class="mws-login-password required" placeholder="密码">
                         </div>
                     </div>
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="password" name="password" class="mws-login-password required" placeholder="密码">
+                            <input type="password" name="" class="mws-login-password required" placeholder="验证码">
                         </div>
                     </div>
                     <div class="mws-form-row">

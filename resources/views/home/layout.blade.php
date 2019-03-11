@@ -45,7 +45,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-                @if (session()->all())
+                @if (session('homeUsers'))
                
                 <span class="fl">你好，{{ session('homeUsers.uname') }}<a href="/home/login/logout">退出</a>&nbsp;
               

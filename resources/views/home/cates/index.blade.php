@@ -75,11 +75,11 @@
                 	<li>
                     	<div class="img"><a href="/home/goods/detail/{{$v->id}}"><img src="/static/home/images/{{$v->gpic}}" width="210" height="185" /></a></div>
                         <div class="price">
-                            <font>￥<span>{{ $v -> gprice}}</span></font> &nbsp; 26R
+                            <font>￥<span>{{ $v -> gprice}}</span></font> &nbsp; 
                         </div>
                         <div class="name"><a href="#">{{ $v -> gname}}</a></div>
                         <div class="carbg">
-                        	<a href="" class="ss">收藏</a>
+                        	<a href="/home/concern" class="ss">收藏</a>
                             <a href="#" class="j_car">加入购物车</a>
                         </div>
                     </li>
