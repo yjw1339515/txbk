@@ -86,8 +86,23 @@ Route::get('home/concern/complaint','home\ManageController@complaint');
 // 前台详情页   本人二次
 Route::get('home/goods/detail/{id}','home\GoodsController@detail');
 // 加入到购物车
-Route::get('home/cart/car/{id}','home\CartController@car');
-Route::get('home/goods/orders','home\GoodsController@orders');
+Route::get('home/cart/car','home\CartController@car');
+Route::get('home/cart/goodsUpdate','home\CartController@goodsUpdate');
 
 
 
+//浏览购物车
+Route::get('home/goods/addcar','home\CartController@addcar');
+Route::get('home/goods/index','home\GoodsController@index');
+Route::get('home/cart/destroy','home\CartController@destroy');
+
+// 确认信息页
+Route::get('home/cart/orders','home\CartController@orders');
+Route::get('home/cart/qry','home\CartController@qry');
+
+
+// 我的订单
+Route::get('home/orders/index','home\OrdersController@index');
+
+// 删除订单
+Route::get('home/orders/del/{oid}','home\OrdersController@del');

@@ -7,102 +7,159 @@ use App\Http\Controllers\Controller;
 use App\Admin\Goods;
 use App\Admin\Cart;
 use App\Admin\Users;
+use App\Home\Orders;
+use App\Home\Details;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-       public function car(Request $request,$id)
-    {
-        // $data->$cnt = $request->input('_token');
-        $data = Goods::find($id);
-        $user = Users::find($id);
-        $cart = new Cart;
-        // $users->uname = $data['uname']; 
-        $cart->gname = $data['gname'];
-        $cart->cid = $data['id'];
-        $cart->gprice = $data['gprice'];
-        $cart->cnt = $request->input('cnt');
-        $cart->gid = $user['uid'];
-        dump($cart);die;
-
-        $res = $cart->save();
-        // $goods = Goods::find($id);
-        // //dump($goods);die;
-        // $goods->cnt = $request->input('cnt');
-        // dump($goods);die;
-        // return view('home.goods.car',['goods'=>$goods]);
-
-        
-        
-    }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function addcar(Request $request)
     {
-        //
+
+        session_start();
+        // $_SESSION['car'] = [];
+
+        $gid = $request->input('gid');
+        $cnt = $request->input('cnt');
+        //查询数据库 该商品是否存在
+        $goods = Goods::where('id',$gid)->first();
+        //数据库商品如果不存在
+        if (!$goods){
+            $return = [
+                "code"=>"0",
+                "msg" => "商品不存在",
+                "data"=>[]
+            ];
+            echo json_encode($return);die;
+        }
+
+        //如果购物车内该商品不存在
+        if( !array_key_exists('car',$_SESSION) ) {
+            $_SESSION["car"][$gid]  = [
+                "gid" => $gid,
+                "gname" => $goods["gname"],
+                "cnt" => $cnt,
+                "gpic" => $goods["gpic"],
+                "gprice" => $goods["gprice"],
+            ];
+        }else{
+            if (!array_key_exists($gid, $_SESSION["car"])) {
+                $_SESSION["car"][$gid] = [
+                    "gid" => $gid,
+                    "gname" => $goods["gname"],
+                    "cnt" => $cnt,
+                    "gpic" => $goods["gpic"],
+                    "gprice" => $goods["gprice"],
+                ];
+            }else{
+                $_SESSION["car"][$gid]["cnt"] += $cnt;
+            }
+        }
+        $return = [
+            "code"=>"1",
+            "msg" => "商品已加入购物车",
+            "data"=>[]
+        ];
+        echo json_encode($return);die;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+       public function car(Request $request)
     {
-        //
+        session_start();
+        $sumprice = 0;
+         if (!array_key_exists("car", $_SESSION)) {
+            $goods = [];
+        }else{
+          $goods = $_SESSION['car'];  
+          // dump($goods);die;          
+          foreach($goods as $v){
+            $sumprice += $v["cnt"]*$v["gprice"];
+
+          }
+        }
+
+         return view('home/goods/car',['goods'=>$goods,'sumprice'=>$sumprice]); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function goodsUpdate(Request $request)
     {
-        //
+        session_start();
+        $gid = $request->input('gid');
+        $cnt = $request->input('cnt');
+        $_SESSION["car"][$gid]["cnt"] = $cnt;
+
+        $sum = 0;
+        foreach($_SESSION["car"] as $k=>$v){
+            $sum += $v['cnt']*$v['gprice'];
+        }
+        $data['code'] = 200;
+        $data['sum'] = $sum;
+        $data['gprice'] = $gprice;
+
+         return response()->json(['data'=>$data]);
+
+
+        
     }
+    // 删除指定id的商品
+    public function destroy(Request $request)
+    {
+        session_start();
+        $id = $request->input('gid');
+        if (array_key_exists($id,$_SESSION['car'])) {
+            unset($_SESSION['car'][$id]);
+
+            $data['code'] = 200;
+            $data['message'] = '删除成功';
+            return response()->json(['data'=>$data]);
+        }else{
+            $data['code'] = 300;
+            $data['message'] = '商品不在购物车中';
+            return response()->json(['data'=>$data]);
+        }
+    }
+    
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for creating a new resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Reponse
      */
-    public function edit($id)
+    public function orders()
     {
-        //
+        session_start();
+        $goods = $_SESSION['car'];
+        $sum = 0;
+        foreach($_SESSION["car"] as $k=>$v){
+            $sum += $v['cnt']*$v['gprice'];
+        }
+        return view('home/goods/orders',['goods'=>$goods,'sum'=>$sum]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+   
+    public function qry(Request $request)
     {
-        //
+        session_start();
+        $goods =  $_SESSION['car'];
+        // $data['oid'] = $oid = date('YmdHis').mt_rand(1000,9999);
+        // $data['sumprice'] = $_SESSION['car']['gprice'];
+        // $data['cnt'] = $_SESSION['car']['cnt'];
+        // $data['users_uid'] = $_SESSION['car']['users_uid'];
+        // $data['created_at'] = time();
+        // dump($data);die;
+       $orders = Orders::createOrder($goods);
+       unset($_SESSION['car']);
+       // dump($orders);die;
+       return view('home/goods/qry',['orders=>$orders']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

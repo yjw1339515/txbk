@@ -9,16 +9,14 @@
            EvPNG.fix('div, ul, img, li, input, a'); 
         </script>
     <![endif]-->    
+     <link rel="stylesheet" type="text/css" href="/static/home/css/ShopShow.css" />
+    <link rel="stylesheet" type="text/css" href="/static/home/css/MagicZoom.css" />
     <script type="text/javascript" src="/static/home/js/jquery-1.11.1.min_044d0927.js"></script>
-	<script type="text/javascript" src="/static/home/js/jquery.bxslider_e88acd1b.js"></script>
-    
+    <script type="text/javascript" src="/static/home/js/jquery.bxslider_e88acd1b.js"></script>
     <script type="text/javascript" src="/static/home/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/static/home/js/menu.js"></script>    
-        
-	<script type="text/javascript" src="/static/home/js/select.js"></script>
-    
-	<script type="text/javascript" src="/static/home/js/lrscroll.js"></script>
-    
+    <script type="text/javascript" src="/static/home/js/menu.js"></script>     
+    <script type="text/javascript" src="/static/home/js/select.js"></script>
+    <script type="text/javascript" src="/static/home/js/lrscroll.js"></script>    
     <script type="text/javascript" src="/static/home/js/iban.js"></script>
     <script type="text/javascript" src="/static/home/js/fban.js"></script>
     <script type="text/javascript" src="/static/home/js/f_ban.js"></script>
@@ -26,8 +24,8 @@
     <script type="text/javascript" src="/static/home/js/bban.js"></script>
     <script type="text/javascript" src="/static/home/js/hban.js"></script>
     <script type="text/javascript" src="/static/home/js/tban.js"></script>
-   
-	<script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
+   <script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
+   <script type="text/javascript" src="/static/home/js/n_nav.js"></script>
     
 <title>尤洪</title>
 </head>
@@ -55,7 +53,7 @@
                 <span class="fl">你好，请<a href="/home/login/login">登录</a>&nbsp;
                 @endif
                 <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
-                <a href="#">我的订单</a>&nbsp;|</span>
+                <a href="/home/orders/index">我的订单</a>&nbsp;|</span>
                 
         	<span class="ss">
                 &nbsp;
@@ -147,13 +145,12 @@
                         </div>
                     </li>
                         @endforeach         	
-                </ul>
-                             
+                </ul>                             
             </div>
         </div>  
         <!--End 商品分类详情 End-->
                                
-    	<ul class="menu_r">                                                                                                                                               
+    	<ul class="menu_r">                                               
         	<li><a href="Index.html">首页</a></li>
             <li><a href="Food.html">美食</a></li>
             <li><a href="Fresh.html">生鲜</a></li>
