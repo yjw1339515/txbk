@@ -15,11 +15,8 @@ class OrdersController extends Controller
      */
     public function index(Request $request)
     {
-        //获取用户id,此处先虚拟用户id为1
-        $uid = 1;
-
         // 通过用户找订单
-        $orders = Orders::findOrdersByUid($uid);
+        $orders = Orders::findOrdersByUid(session("homeUsers.uid"));
 
         // dump($orders);die;
         // 显示页面

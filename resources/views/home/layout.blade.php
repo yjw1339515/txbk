@@ -54,7 +54,6 @@
                 @endif
                 <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
                 <a href="/home/orders/index">我的订单</a>&nbsp;|</span>
-                
         	<span class="ss">
                 &nbsp;
             	<a href="#">我的收藏</a>

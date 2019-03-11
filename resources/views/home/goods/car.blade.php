@@ -79,5 +79,25 @@
         </div>
     </div>    
     <!--End 弹出层-删除商品 End-->
-    
+<script>
+$(document).ready(function(){
+//加的效果
+$("#goodsJia").click(function(){
+var n=$(this).prev().val();
+var num=parseInt(n)+1;
+if(num==0){ return;}
+$(this).prev().val(cnt);
+});
+
+//减的效果
+$(".#goodsJian").click(function(){
+var n=$(this).next().val();
+var num=parseInt(n)-1;
+if(num==0){ return}
+$(this).next().val(cnt);
+});
+
+}
+
+</script>
 @stop

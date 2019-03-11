@@ -52,45 +52,7 @@
                 @endif
                 <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
                 <a href="/home/orders/index">我的订单</a>&nbsp;|</span>
-            <span class="ss">
-                <div class="ss_list">
-                    <a href="#">收藏夹</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">我的收藏夹</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
-                            </ul>
-                        </div>
-                    </div>     
-                </div>
-                <div class="ss_list">
-                    <a href="#">客户服务</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                    <a href="#">网站导航</a>
-                    <div class="ss_list_bg">
-                        <div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                            <ul>
-                                <li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </span>
+
             <span class="ss">
                 &nbsp;
                 <a href="#">我的收藏</a>

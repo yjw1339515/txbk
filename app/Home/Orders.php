@@ -51,10 +51,10 @@ class Orders extends Model
     			break;
     		}
     	}
-
     	$data['oid'] = $sn;
     	$data['sumprice'] = $sum;
     	$data['cnt']    = $cnt;
+            $data['user_id']    = session("homeUsers.uid");
             $data['created_at'] = time();
     	$res = DB::table('shop_orders')->insert($data);
 

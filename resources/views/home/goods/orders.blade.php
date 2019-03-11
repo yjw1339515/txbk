@@ -25,7 +25,7 @@
                     {{$v['gname']}}
                 </td>
                 <td align="center">{{$v['cnt']}}</td>
-                <td align="center" style="color:#ff4e00;">{{$v['gprice']}}</td>
+                <td align="center" style="color:#ff4e00;">{{$v['gprice']*$v['cnt']}}</td>
               </tr>
 	@endforeach
               <tr>
