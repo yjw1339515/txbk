@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,17 +6,17 @@
     <!--[if IE 6]>
     <script src="/static/home/js/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
-           EvPNG.fix('div, ul, img, li, input, a'); 
+           EvPNG.fix('div, ul, img, li, input, a');
         </script>
-    <![endif]-->    
+    <![endif]-->
      <link rel="stylesheet" type="text/css" href="/static/home/css/ShopShow.css" />
     <link rel="stylesheet" type="text/css" href="/static/home/css/MagicZoom.css" />
     <script type="text/javascript" src="/static/home/js/jquery-1.11.1.min_044d0927.js"></script>
     <script type="text/javascript" src="/static/home/js/jquery.bxslider_e88acd1b.js"></script>
     <script type="text/javascript" src="/static/home/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/static/home/js/menu.js"></script>     
+    <script type="text/javascript" src="/static/home/js/menu.js"></script>
     <script type="text/javascript" src="/static/home/js/select.js"></script>
-    <script type="text/javascript" src="/static/home/js/lrscroll.js"></script>    
+    <script type="text/javascript" src="/static/home/js/lrscroll.js"></script>
     <script type="text/javascript" src="/static/home/js/iban.js"></script>
     <script type="text/javascript" src="/static/home/js/fban.js"></script>
     <script type="text/javascript" src="/static/home/js/f_ban.js"></script>
@@ -26,10 +26,10 @@
     <script type="text/javascript" src="/static/home/js/tban.js"></script>
    <script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
    <script type="text/javascript" src="/static/home/js/n_nav.js"></script>
-    
+
 <title>尤洪</title>
 </head>
-<body>  
+<body>
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -38,7 +38,7 @@
                 <div class="s_city_bg">
                 	<div class="s_city_t"></div>
                     <div class="s_city_c">
-                    	
+
                     </div>
                 </div>
             </span>
@@ -46,9 +46,9 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
                 @if (session('homeUsers'))
-               
+
                 <span class="fl">你好，{{ session('homeUsers.uname') }}<a href="/home/login/logout">退出</a>&nbsp;
-              
+
                 @else
                 <span class="fl">你好，请<a href="/home/login/login">登录</a>&nbsp;
                 @endif
@@ -57,8 +57,8 @@
         	<span class="ss">
                 &nbsp;
             	<a href="#">我的收藏</a>
-                
-               
+
+
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
@@ -72,7 +72,7 @@
     	<form>
         	<input type="text" value="" class="s_ipt" />
             <input type="submit" value="搜索" class="s_btn" />
-        </form>                      
+        </form>
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
     <div class="i_car">
@@ -105,11 +105,11 @@
         </div>
     </div>
 </div>
-<!--End Header End--> 
+<!--End Header End-->
 <!--Begin Menu Begin-->
 <div class="menu_bg">
 	<div class="menu">
-    	<!--Begin 商品分类详情 Begin-->    
+    	<!--Begin 商品分类详情 Begin-->
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
             @if (!empty($show))
@@ -117,39 +117,39 @@
             @else
             <div class="leftNav none">
             @endif
-                <ul> 
+                <ul>
                     @foreach ( $common_cates_data as $k => $v)
-                                 
+
                     <li>
                     	<div class="fj">
                         	<span class="n_img"><span></span></span>
                             <span class="fl">{{$v -> cname}}</span>
                         </div>
                         <div class="zj"  ">
-                            
+
                             <div class="zj_l" >
-                            
+
                                 <div>
                                    @foreach ($v['sub'] as $kk => $vv)
                                     <a href="/home/cates/index/{{$vv->id}}">{{$vv -> cname }}</a> |
                                     @endforeach
                                 </div>
-                                
-                            </div> 
-                            
+
+                            </div>
+
                             <div class="zj_r">
                                 <a href="#"><img src="/static/home/images/n_img1.jpg" width="236" height="200" /></a>
                                 <a href="#"><img src="/static/home/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
-                        @endforeach         	
-                </ul>                             
+                        @endforeach
+                </ul>
             </div>
-        </div>  
+        </div>
         <!--End 商品分类详情 End-->
-                               
-    	<ul class="menu_r">                                               
+
+    	<ul class="menu_r">
         	<li><a href="Index.html">首页</a></li>
             <li><a href="Food.html">美食</a></li>
             <li><a href="Fresh.html">生鲜</a></li>
@@ -162,8 +162,8 @@
         <div class="m_ad">中秋送好礼！</div>
     </div>
 </div>
-<!--End Menu End--> 
-@section('content')  
+<!--End Menu End-->
+@section('content')
 
 
 @show
@@ -197,7 +197,7 @@
         </div>
     </div>
     <div class="b_nav">
-    	<dl>                                                                                            
+    	<dl>
         	<dt><a href="#">新手上路</a></dt>
             <dd><a href="#">售后流程</a></dd>
             <dd><a href="#">购物流程</a></dd>
@@ -230,7 +230,7 @@
             <dd><a href="#">投诉与建议</a></dd>
         </dl>
         <div class="b_tel_bg">
-        	<a href="#" class="b_sh1">新浪微博</a>            
+        	<a href="#" class="b_sh1">新浪微博</a>
         	<a href="#" class="b_sh2">腾讯微博</a>
             <p>
             服务热线：<br />
@@ -241,14 +241,14 @@
             <div class="b_er_c"><img src="/static/home/images/er.gif" width="118" height="118" /></div>
             <img src="/static/home/images/ss.png" />
         </div>
-    </div>    
+    </div>
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
             <img src="/static/home/images/b_1.gif" width="98" height="33" /><img src="/static/home/images/b_2.gif" width="98" height="33" /><img src="/static/home/images/b_3.gif" width="98" height="33" /><img src="/static/home/images/b_4.gif" width="98" height="33" /><img src="/static/home/images/b_5.gif" width="98" height="33" /><img src="/static/home/images/b_6.gif" width="98" height="33" />
-        </div>    	
+        </div>
     </div>
-    <!--End Footer End -->    
+    <!--End Footer End -->
 </div>
 
 </body>

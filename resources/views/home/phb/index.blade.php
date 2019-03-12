@@ -17,8 +17,8 @@
             <div class="goods_detail" style="height:300px;width:1040;margin-bottom:45px;text-align:left;font-size:20px;font-weight:bold;line-height:54px;color:#FF8C00;">
                 商品排名：<span style="font-size:18px;color:black;">第{{$v->tid}}名</span><br/>
                 商品名称：<span style="font-size:18px;color:black;">{{$v->gname}}</span><br/>
-                商品价格：<span style="font-size:18px;color:black;">{{$v->gprice}}</span><br/>
-                商品库存：<span style="font-size:18px;color:black;">{{$v->stock}}</span><br/>
+                商品价格：<span style="font-size:18px;color:black;">￥{{$v->gprice}}</span><br/>
+                商品库存：<span style="font-size:18px;color:black;">现余{{$v->stock}}件</span><br/>
                 商品详情：<span style="font-size:18px;color:black;">{{$v->gdesc}}</span><br/>
             </div>
         </a>
