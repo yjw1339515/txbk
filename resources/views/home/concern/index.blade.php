@@ -46,21 +46,24 @@
 		<div class="m_right">
             <p></p>
             <div class="mem_tit">
-            	<span class="fr" style="font-size:12px; color:#55555; font-family:'宋体'; margin-top:5px;">共发现4件</span>关注
+            	<span class="fr" style="font-size:12px; color:#55555; font-family:'宋体'; margin-top:5px;"></span>我的关注
             </div>
            	<table border="0" class="order_tab" style="width:930px;" cellspacing="0" cellpadding="0">
               <tr>                                                                                                                                       
                 <td align="center" width="420">商品名称</td>
                 <td align="center" width="180">价格</td>
+                <td align="center" width="270">时间</td>
                 <td align="center" width="270">操作</td>
               </tr>
+            @foreach($gz_data as $k=>$v)
               <tr>
                 <td style="font-family:'宋体';">
-                	<div class="sm_img"><img src="/static/home/images/simg.jpg" width="48" height="48" /></div>法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只
-                </td>
-                <td align="center">￥456.00</td>
-                <td align="center"><a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="#">删除</a></td>
+                	<div class="sm_img"><img src="/static/home/images/{{$v->gpic}}" width="48" height="48" /></div>{{$v->gname}}</td>
+                <td align="center">￥{{$v->gprice}}</td>
+                <td align="center">{{$v->created_at}}</td>
+                <td align="center"><a href="#" style="color:#ff4e00;">加入购物车</a>&nbsp; &nbsp; <a href="/home/concern/destroy/{{$v->zid}}">删除</a></td>
               </tr>
+            @endforeach
             </table>
 
 

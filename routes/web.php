@@ -84,10 +84,13 @@ Route::get('home/login/regist','home\LoginController@regist');
 // 前台列表页
 Route::get('home/cates/index/{id}','home\CatesController@index');
 // 我的关注
-Route::resource('home/concern','home\ManageController');
-Route::get('home/concern/index','home\ManageController@index');
+Route::get('/home/concern/index','home\ManageController@index');
+Route::get('/home/concern/create/{id}','home\ManageController@create');
+Route::get('/home/concern/destroy/{id}','home\ManageController@destroy');
+
 // 意见反馈
-Route::get('home/concern/complaint','home\ManageController@complaint');
+Route::get('home/advices/index','home\AdvicesController@index');
+Route::post('home/advices/store','home\AdvicesController@store');
 
 // 前台详情页   本人二次
 Route::get('home/goods/detail/{id}','home\GoodsController@detail');

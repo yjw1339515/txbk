@@ -59,8 +59,8 @@ class GoodsController extends Controller
             $goods->stock = $data['stock'];
             $goods->gdesc = $data['gdesc'];
             $goods->cid = $data['cid'];
-           $res =  $goods->save();
-        if($res){
+            $res =  $goods->save();
+            if($res){
                     return redirect('/goods')->with('success','添加成功');
             }else{
                     return back()->with('error','添加失败');

@@ -100,13 +100,15 @@
         </div>
         <div class="fresh_mid">
             <ul>
+                @foreach($goods as $kk => $vv)
                 <li>
                     <div class="name"><a href="#">{{$v -> cname}}</a></div>
                     <div class="price">
-                        <font>￥<span>198.00</span></font> &nbsp; 
+                        <font>￥<span>{{$vv->gprice}}</span></font> &nbsp; 
                     </div>
-                    <div class="img"><a href="#"><img src="/static/home/images/fre_1.jpg" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="/static/home/images/{{$vv->gpic}}" width="185" height="155" /></a></div>
                 </li>
+                @endforeach
             </ul>
         </div>
         <div class="fresh_right">

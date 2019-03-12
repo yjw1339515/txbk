@@ -56,7 +56,7 @@
                 <a href="/home/orders/index">我的订单</a>&nbsp;|</span>
         	<span class="ss">
                 &nbsp;
-            	<a href="#">我的收藏</a>
+            	<a href="/home/concern/index">我的关注</a>
                 
                
             </span>
