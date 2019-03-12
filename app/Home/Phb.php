@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Admin;
+namespace App\Home;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
+use App\Admin\Phb;
 
 class Phb extends Model
 {

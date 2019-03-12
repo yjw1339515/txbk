@@ -156,7 +156,13 @@
                        <a href="#"><i class="icon-flag"></i> 排行榜管理</a>
                        <ul>
                            <li><a href="/admin/phb">排行榜列表</a></li>
-                           <li><a href="/admin/phb/edit">排行榜管理</a></li>
+                       </ul>
+                   </li>
+                    <li>
+                       <a href="#"><i class="icon-feather"></i> 文章管理</a>
+                       <ul>
+                           <li><a href="/admin/art">文章列表</a></li>
+                           <li><a href="/admin/art/create">文章添加</a></li>
                        </ul>
                    </li>
                      <li>
