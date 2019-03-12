@@ -10,6 +10,7 @@ use App\Admin\Users;
 use App\Home\Orders;
 use App\Home\Details;
 
+
 class CartController extends Controller
 {
     /**
@@ -150,16 +151,34 @@ class CartController extends Controller
     {
         session_start();
         $goods =  $_SESSION['car'];
-        // $data['oid'] = $oid = date('YmdHis').mt_rand(1000,9999);
-        // $data['sumprice'] = $_SESSION['car']['gprice'];
-        // $data['cnt'] = $_SESSION['car']['cnt'];
-        // $data['users_uid'] = $_SESSION['car']['users_uid'];
-        // $data['created_at'] = time();
-        // dump($data);die;
+
        $orders = Orders::createOrder($goods);
        unset($_SESSION['car']);
        // dump($orders);die;
-       return view('home/goods/qry',['orders=>$orders']);
+       return view('home/goods/qry',['orders'=>$orders]);
     }
 
+
+        // ajax 购物车添加
+        public function CarAdd(Request $request)
+        {
+            session_start();
+            // var_dump($request->all());
+            // 获取修改的ID
+            $id=$request->input('id');
+
+            //获取SESSION中的数据
+            $shop = $_SESSION['car'];
+            // dump($shop);die;
+
+            // 遍历数据
+            foreach ($shop as $key =>$value){
+                if ($value['gid']==$id){
+                    $shop[$key]['cnt']=++$shop[$key]['cnt'];
+                }
+            }
+            // 写入session
+            $request->session()->put('shop',$shop);
+            // echo (session('shop'));
+        }
 }

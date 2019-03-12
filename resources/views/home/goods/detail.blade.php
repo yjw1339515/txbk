@@ -172,18 +172,18 @@
                             
         <div id="tsShopContainer">
             <div id="tsImgS"><a href="/static/home/images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="/static/home/images/{{ $goods->gpic }}"  width="390" height="390" /></a></div>
-            <div id="tsPicContainer">
+          <!--   <div id="tsPicContainer">
                 <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
                 <div id="tsImgSCon">
                     <ul>
                     @foreach ($goods as $k => $v)
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods->sm_gpic}}" tsImgS="/static/images/ps1.jpg" width="79" height="79" />
+                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods->smgpic}}" tsImgS="/static/images/ps1.jpg" width="79" height="79" />
                         </li>
                     @endforeach
                     </ul>
                 </div>
                 <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
-            </div>
+            </div> -->
             <img class="MagicZoomLoading" width="16" height="16"  alt="Loading..." />               
         </div>
         

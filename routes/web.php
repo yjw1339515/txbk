@@ -121,3 +121,7 @@ Route::resource('admin/phb','admin\PhbController');
 //后台 排行榜修改
 Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
 Route::post('/admin/phb/update/{id}','admin\PhbController@update');
+
+// 购物车ajax调整数量
+Route::post('home/cart/CarAdd','home\CartController@CarAdd');
+Route::post('home/cart/CarJian','home\CartController@CarJian');

@@ -24,17 +24,14 @@
                         <div class="c_s_img"><img src="/static/home/images/{{$v['gpic']}}" width="73" height="73" /></div>
                     {{$v['gname']}}
                 </td>
-
-                <td align="center">
+        <td align="center">
                     <div class="c_num">
-                        <input type="button" id="plus" value="" onclick="goodsJian(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_1" />
+                        <input type="button" onclick="goodsJian(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_1" />
                         <input type="text" id="cnt{{$v['gid']}}"  value="{{$v['cnt']}}" name="" class="car_ipt" />  
                         <input type="button"  onclick="goodsJia(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_2" />
                     </div>
-                </td>
-
-                <td align="center" id ="xiaoji{{$v["gid"]}}"style="color:#ff4e00;">{{$v['gprice']*$v['cnt']}}</td>
-
+                </td>       
+                <td align="center" id ="xiaoji{{$v["gid"]}}"  style="color:#ff4e00;" value="">{{ $v['cnt']*$v['gprice'] }}</td>
                 <td align="center"><a onclick="shanchu(this,{{$v['gid']}});">删除</a>&nbsp; &nbsp;<a href="#">关注</a></td>
            </tr>
         @endforeach
@@ -43,7 +40,7 @@
           <tr height="70">
           	<td colspan="6" style="font-family:'Microsoft YaHei'; border-bottom:0;">
             	<label class="r_rad"><input type="checkbox" name="clear" checked="checked" /></label><label class="r_txt">清空购物车</label>
-                <span class="fr">商品总价：<b id="zongji" style="font-size:22px; color:#ff4e00;">{{$sumprice}}</b></span>
+                <span class="fr">商品总价：<b id="zongji" style="font-size:22px; color:#ff4e00;" value=" ">{{$sumprice}}</b></span>
             </td>
           </tr>
           <tr valign="top" height="150">
@@ -78,26 +75,33 @@
             </div>
         </div>
     </div>    
-    <!--End 弹出层-删除商品 End-->
-<script>
-$(document).ready(function(){
-//加的效果
-$("#goodsJia").click(function(){
-var n=$(this).prev().val();
-var num=parseInt(n)+1;
-if(num==0){ return;}
-$(this).prev().val(cnt);
-});
 
-//减的效果
-$(".#goodsJian").click(function(){
-var n=$(this).next().val();
-var num=parseInt(n)-1;
-if(num==0){ return}
-$(this).next().val(cnt);
-});
+<script type="text/javascript">
+ // 加的效果
+   function goodsJia(){
+  $(".car_btn_2").click(function(){
+   var n=$(this).prev().val();
+   var num=parseInt(n)+1;
+    $(this).prev().val(num);
+    // var id = {{$v['gid']}};
+    //   alert(id);
+  });
+  }
 
-}
+  //  减得效果
+   function goodsJian(){
+    // alert($);
+   var n=$(this).prev().val("cnt{{$v['gid']}}");
+   // alert(n);   // [object Object]
+   var num=parseInt(n)+1;
+    $(this).prev().val(num);
+    // alert(num);
 
+  }
+ 
 </script>
+
 @stop
+    <!--End 弹出层-删除商品 End-->
+
+
