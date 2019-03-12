@@ -121,3 +121,13 @@ Route::resource('admin/phb','admin\PhbController');
 //后台 排行榜修改
 Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
 Route::post('/admin/phb/update/{id}','admin\PhbController@update');
+//后台 文章管理
+Route::resource('/admin/art','admin\ArtController');
+//后台 文章添加
+Route::get('/admin/art/create','admin\ArtController@create');
+Route::post('/admin/art/store','admin\ArtController@store');
+//后台 文章修改
+Route::get('/admin/art/edit/{id}','admin\ArtController@edit');
+Route::post('/admin/art/update/{id}','admin\ArtController@update');
+//后台 文章删除
+Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
