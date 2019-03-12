@@ -38,14 +38,14 @@ class ArtController extends Controller
          // 处理文件名称
          $temp_name = str_random(20);
          $filename =  $temp_name.'.'.$ext;
-         $dirname = date('Ymd',time());
+         // $dirname = date('Ymd',time());
          // 保存文件
-         $res = $pic -> move('./art/'.$dirname,$filename);
+         $res = $pic -> move('./art',$filename);
 
          $art = new Art;
          $art->title = $data['title'];
          $art->body = $data['body'];
-         $art->pic = trim($res->getpathName(),'.');
+         $art->pic = trim(trim($res->getpathName(),'.'),'\\');
          $result = $art->save();
 
          // $res = Art::create($data);

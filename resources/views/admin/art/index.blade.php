@@ -25,7 +25,7 @@
                     <td>{{$v->id}}</td>
                     <td>{{$v->title}}</td>
                     <td >
-                        <img src="/art/{{$v->pic}}" alt="">
+                        <img src="{{$v->pic}}" alt="{{$v->title}}">
                     </td>
                     <td >
                         {{$v->body}}
