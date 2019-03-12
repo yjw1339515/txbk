@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Goods;
+use App\Admin\Phb;
 
 class PhbController extends Controller
 {
@@ -15,7 +16,8 @@ class PhbController extends Controller
      */
     public function index()
     {
-        return view('home.phb.phb');
+        $data = Phb::orderBy('tid','asc')->get();
+        return view('home.phb.index',['data'=>$data]);
     }
 
     /**
