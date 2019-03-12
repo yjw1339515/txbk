@@ -49,30 +49,29 @@
         </div>
 		<div class="m_right">
             <p></p>
-            <div class="mem_tit">我的留言</div>
-           	<form>
+            <div class="mem_tit">意见反馈</div>
+           	<form action="/home/advices/store" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
             <table border="0" style="width:880px; margin-top:20px;"  cellspacing="0" cellpadding="0">
               <tr height="45">
                 <td width="80" align="right">留言类型 &nbsp; &nbsp;</td>
-                <td>                            
-                	<label class="r_rad"><input type="checkbox" name="type" checked="checked" /></label><label class="r_txt">留言</label>
-                    <label class="r_rad"><input type="checkbox" name="type" /></label><label class="r_txt">投诉</label>
-                    <label class="r_rad"><input type="checkbox" name="type" /></label><label class="r_txt">询问</label>
-                    <label class="r_rad"><input type="checkbox" name="type" /></label><label class="r_txt">售后</label>
-                    <label class="r_rad"><input type="checkbox" name="type" /></label><label class="r_txt">求购</label>
+                <td> 
+                    <label class="r_rad"><input type="checkbox" name="type" value="0" /></label><label class="r_txt">商品投诉</label>
+                    <label class="r_rad"><input type="checkbox" name="type" value="1" /></label><label class="r_txt">意见反馈</label>
+                    <label class="r_rad"><input type="checkbox" name="type" value="2" /></label><label class="r_txt">售后</label>
                 </td>
               </tr>
               <tr height="45">
                 <td align="right">主题 &nbsp; &nbsp;</td>
-                <td><input type="text" value="" class="add_ipt" style="width:290px;" /></td>
+                <td><input type="text" name="content" value="" class="add_ipt" style="width:290px;" /></td>
               </tr>
               <tr valign="top" height="110">
                 <td align="right">留言内容 &nbsp; &nbsp;</td>
-                <td style="padding-top:5px;"><textarea class="add_txt"></textarea></td>
+                <td style="padding-top:5px;"><textarea name="reason" class="add_txt"></textarea></td>
               </tr>
               <tr height="45">
                 <td align="right">上传文件 &nbsp; &nbsp;</td>
-                <td><input type="file" /></td>
+                <td><input type="file" name="gpic" /></td>
               </tr>
               <tr height="50">
                 <td>&nbsp;</td>

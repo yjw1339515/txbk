@@ -52,21 +52,8 @@
         </div>
         <div class="l_list">
         	<div class="list_t">
-            	<span class="fl list_or">
-                	<a href="#" class="now">默认</a>
-                    <a href="#">
-                    	<span class="fl">销量</span>                        
-                        <span class="i_up">销量从低到高显示</span>
-                        <span class="i_down">销量从高到低显示</span>                                                     
-                    </a>
-                    <a href="#">
-                    	<span class="fl">价格</span>                        
-                        <span class="i_up">价格从低到高显示</span>
-                        <span class="i_down">价格从高到低显示</span>     
-                    </a>
-                    <a href="#">新品</a>
-                </span>
-                <span class="fr">共发现120件</span>
+            	
+                	
             </div>
             <div class="list_c">
             	
@@ -79,7 +66,7 @@
                         </div>
                         <div class="name"><a href="#">{{ $v -> gname}}</a></div>
                         <div class="carbg">
-                        	<a href="/home/concern" class="ss">收藏</a>
+                        	<a href="/home/concern/create/{{$v->id}}" class="ss">收藏</a>
                             <a href="#" class="j_car">加入购物车</a>
                         </div>
                     </li>
