@@ -56,15 +56,9 @@
                 <a href="/home/orders/index">我的订单</a>&nbsp;|</span>
         	<span class="ss">
                 &nbsp;
-<<<<<<< HEAD
-            	<a href="/home/concern/index">我的关注</a>
-                
-               
-=======
-            	<a href="#">我的收藏</a>
 
+            	<a href="/home/concern/index">我的关注</a>               
 
->>>>>>> origin/Liuweihan
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>

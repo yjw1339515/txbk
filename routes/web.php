@@ -127,12 +127,6 @@ Route::resource('admin/phb','admin\PhbController');
 Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
 Route::post('/admin/phb/update/{id}','admin\PhbController@update');
 
-
-
-// 购物车ajax调整数量
-Route::post('home/cart/CarAdd','home\CartController@CarAdd');
-Route::post('home/cart/CarJian','home\CartController@CarJian');
-
 //后台 文章管理
 
 //后台 购物攻略-文章管理
@@ -146,3 +140,6 @@ Route::post('/admin/art/update/{id}','admin\ArtController@update');
 //后台 购物攻略-文章删除
 Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
 
+
+// // 购物车加减 ajax传值
+// Route::get('/home/cart/goodsUpdate/{id}','home\CartController@goodsUpdate');

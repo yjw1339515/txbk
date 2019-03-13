@@ -24,13 +24,13 @@
                         <div class="c_s_img"><img src="/static/home/images/{{$v['gpic']}}" width="73" height="73" /></div>
                     {{$v['gname']}}
                 </td>
-        <td align="center">
+                <td align="center">
                     <div class="c_num">
                         <input type="button" onclick="goodsJian(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_1" />
                         <input type="text" id="cnt{{$v['gid']}}"  value="{{$v['cnt']}}" name="" class="car_ipt" />  
                         <input type="button"  onclick="goodsJia(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_2" />
                     </div>
-                </td>       
+                </td>
                 <td align="center" id ="xiaoji{{$v["gid"]}}"  style="color:#ff4e00;" value="">{{ $v['cnt']*$v['gprice'] }}</td>
                 <td align="center"><a onclick="shanchu(this,{{$v['gid']}});">删除</a>&nbsp; &nbsp;<a href="#">关注</a></td>
            </tr>
@@ -75,33 +75,64 @@
             </div>
         </div>
     </div>    
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
- // 加的效果
-   function goodsJia(){
-  $(".car_btn_2").click(function(){
-   var n=$(this).prev().val();
-   var num=parseInt(n)+1;
-    $(this).prev().val(num);
-    // var id = {{$v['gid']}};
-    //   alert(id);
-  });
-  }
 
-  //  减得效果
-   function goodsJian(){
-    // alert($);
-   var n=$(this).prev().val("cnt{{$v['gid']}}");
-   // alert(n);   // [object Object]
-   var num=parseInt(n)+1;
-    $(this).prev().val(num);
-    // alert(num);
+      //加的效果
+    function goodsJia(obj,gid,gprice){
+        
+          var n=$(obj).prev().val();
 
-  }
- 
+          var num=parseInt(n)+1;
+
+          $(obj).prev().val(num);
+          //$('#xiaoji1').html(num*gprice);
+          $(obj).parent().parent().next().html(num*gprice);
+
+          $.ajax({
+                type:'GET',
+                url:'/home/cart/goodsUpdate',
+                data:"gid="+gid+"&gprice="+gprice+"&cnt="+num,
+                dataType: "json",
+                success:function (data){
+                  
+                  $('#zongji').html(data.data.sum);
+                }
+              })
+
+      
+    }
+
+  //减的效果
+    function goodsJian(obj,gid,gprice){
+        
+          var n=$(obj).next().val();
+
+          var num=parseInt(n)-1;
+
+          if(num <= 0){
+                     return num==1 ;
+           }
+
+           $(obj).next().val(num);
+           $(obj).parent().parent().next().html(num*gprice);
+
+          $.ajax({
+                type:'GET',
+                url:'/home/cart/goodsUpdate',
+                data:"gid="+gid+"&gprice="+gprice+"&cnt="+num,
+                dataType: "json",
+                success:function (data){
+                  //$('#xiaoji1').html(num*gprice);
+                  $('#zongji').html(data.data.sum);
+                }
+              })
+    }
+
 </script>
 
-@stop
+@endsection
     <!--End 弹出层-删除商品 End-->
 
 

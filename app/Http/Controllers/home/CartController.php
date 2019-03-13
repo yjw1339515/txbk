@@ -81,9 +81,11 @@ class CartController extends Controller
             $goods = [];
         }else{
           $goods = $_SESSION['car'];  
-          // dump($goods);die;          
-          foreach($goods as $v){
+           // dump($goods);die;          
+          foreach($goods as $k=>$v){
+            // dump($goods);
             $sumprice += $v["cnt"]*$v["gprice"];
+            // dump($sumprice);die;
 
           }
         }
@@ -96,9 +98,10 @@ class CartController extends Controller
         session_start();
         $gid = $request->input('gid');
         $cnt = $request->input('cnt');
+        $gprice = $request->input('gprice');
         $_SESSION["car"][$gid]["cnt"] = $cnt;
-
         $sum = 0;
+        
         foreach($_SESSION["car"] as $k=>$v){
             $sum += $v['cnt']*$v['gprice'];
         }
@@ -108,8 +111,6 @@ class CartController extends Controller
 
          return response()->json(['data'=>$data]);
 
-
-        
     }
     // 删除指定id的商品
     public function destroy(Request $request)
@@ -158,27 +159,4 @@ class CartController extends Controller
        return view('home/goods/qry',['orders'=>$orders]);
     }
 
-
-        // ajax 购物车添加
-        public function CarAdd(Request $request)
-        {
-            session_start();
-            // var_dump($request->all());
-            // 获取修改的ID
-            $id=$request->input('id');
-
-            //获取SESSION中的数据
-            $shop = $_SESSION['car'];
-            // dump($shop);die;
-
-            // 遍历数据
-            foreach ($shop as $key =>$value){
-                if ($value['gid']==$id){
-                    $shop[$key]['cnt']=++$shop[$key]['cnt'];
-                }
-            }
-            // 写入session
-            $request->session()->put('shop',$shop);
-            // echo (session('shop'));
-        }
 }

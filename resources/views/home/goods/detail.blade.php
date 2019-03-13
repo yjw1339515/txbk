@@ -242,13 +242,11 @@
             </div>    
 
         </div>    
-        
+
         <div class="s_brand">
             <div class="s_brand_img"><img src="/static/home/images/sbrand.jpg" width="188" height="132" /></div>
             <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
         </div>    
-        
-        
     </div>
     <div class="content mar_20">
         <div class="l_history">
