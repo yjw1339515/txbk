@@ -115,6 +115,7 @@ class CartController extends Controller
     // 删除指定id的商品
     public function destroy(Request $request)
     {
+
         session_start();
         $id = $request->input('gid');
         if (array_key_exists($id,$_SESSION['car'])) {

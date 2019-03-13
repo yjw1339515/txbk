@@ -78,6 +78,22 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+    // 删除的效果
+    function shanchu(obj,gid)
+    {
+                $.ajax({
+                          type:'GET',
+                          url:'/home/cart/destroy',
+                          data:"gid="+gid,
+                          dataType: "json",
+                          success:function (data){
+                                  if(data){
+                                    $(obj).parent().parent().remove();
+                                  }
+                          }
+              })
+    }
+
 
       //加的效果
     function goodsJia(obj,gid,gprice){
