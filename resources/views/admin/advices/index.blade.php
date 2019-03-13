@@ -11,8 +11,9 @@
         <thead>
             <tr >
                   <th>建议编号</th>
-                  <th>建议内容</th>
-                  <th>原因</th>
+                  <th>留言类型</th>
+                  <th>主题</th>
+                  <th>内容</th>
                   <th>提交时间</th>
                   <th>相关图片</th>
                   <th>操作</th>
@@ -23,7 +24,15 @@
             @foreach($data as $k=>$v)
                     <tr class="odd" align="center">
                         <td >{{$v->id}}</td>
+                        @if($v->type==0)
+                        <td>商品投诉</td>
+                         @elseif($v->type==1)
+                        <td>意见反馈</td>
+                         @elseif($v->type==2)
+                        <td>售后</td>
+                         @endif 
                         <td>{{$v->content}}</td>
+        
                         <td>{{$v->reason}}</td>
                         <td>{{$v->created_at}}</td>
                         <td>

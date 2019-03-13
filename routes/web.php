@@ -79,6 +79,17 @@ Route::resource('tjws','admin\TjwController');
 //网站配置管理
 Route::resource('sets','admin\SetsController');
 //意见箱管理
- 
  Route::get('/admin/advices/reback','admin\AdvicesController@edit');
  Route::resource('admin/advices','admin\AdvicesController');
+ //手机注册验证
+ Route::get('/home/login/phone/{id}','home\registsController@phone');
+ Route::post('/home/login/uname','home\registsController@update');
+ //获取邮箱
+ Route::post('/home/login/email','home\registsController@create');
+ //修改密码
+ Route::get('/home/login/updateupwd','home\registsController@show');
+ Route::post('/home/login/edit','home\registsController@edit');
+//注册资源路由器
+ Route::resource('/home/login/regist','home\registsController');
+ //前台数据显示
+ Route::get('/home/index/index','home\HomeController@lbts');

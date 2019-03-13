@@ -53,10 +53,11 @@ class AdvicesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        //cong数据库获取信息
         $data = Advices::find($id);
 
-        
+            //软删除数据
          $res=$data->forceDelete();
         if($res){
                 return redirect('/admin/advices')->with('success','删除成功');
@@ -73,6 +74,7 @@ class AdvicesController extends Controller
      */
     public function edit()
     {
+        //获取软删除的数据
           $data = Advices::onlyTrashed()->get();
           return view('admin.advices.reback',['data'=>$data]);
     }
@@ -85,10 +87,12 @@ class AdvicesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        //回复软删除的数据
          $res = Advices::withTrashed()
             ->where('id', $id)
             ->restore();
+            //执行恢复操作
           if($res){
                 return redirect('/admin/advices')->with('success','恢复成功');
         }else{
@@ -105,6 +109,7 @@ class AdvicesController extends Controller
      
     public function destroy($id)
     {
+        //永久删除数据
         $res = Advices::destroy([$id]);
         if($res){
                 return redirect('/admin/advices')->with('success','已审核');
@@ -127,5 +132,5 @@ class AdvicesController extends Controller
     // }
 
 
-
+   
 }
