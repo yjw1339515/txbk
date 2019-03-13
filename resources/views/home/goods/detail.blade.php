@@ -66,7 +66,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.html"><img src="/static/home/images/logo.png" /></a></div>
+    <div class="logo"><a href="/home/index/index"><img src="/static/home/images/logo.png" /></a></div>
     <div class="search">
     <form action="/goods/car/{{$goods->id}}" method="post">
             <input type="text" value="" class="s_ipt" />
@@ -172,12 +172,12 @@
                             
         <div id="tsShopContainer">
             <div id="tsImgS"><a href="/static/home/images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="/static/home/images/{{ $goods->gpic }}"  width="390" height="390" /></a></div>
-          <!--   <div id="tsPicContainer">
+<!--             <div id="tsPicContainer">
                 <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
                 <div id="tsImgSCon">
                     <ul>
                     @foreach ($goods as $k => $v)
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods->smgpic}}" tsImgS="/static/images/ps1.jpg" width="79" height="79" />
+                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods['gpic']}}" tsImgS="/static/images/ps1.jpg" width="79" height="79" />
                         </li>
                     @endforeach
                     </ul>
