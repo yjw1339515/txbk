@@ -5,6 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Cates;
+use App\Admin\Goods;
 
 class IndexController extends Controller
 {
@@ -29,9 +30,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        
+        $goods = Goods::get();
+      
         // 显示模板
-        return view('home.index.index',['show'=>true]);
+        return view('home.index.index',['show'=>true,'goods'=>$goods]);
     }
 
     /**

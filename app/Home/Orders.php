@@ -22,9 +22,7 @@ class Orders extends Model
     	// dump($goods);die;
     	//开启事务
     	DB::beginTransaction();
-    	// // 添加购买时间字段
-     //        $created_at = Goods::where('gid',$id)->get('created_at');
-     //        dump($created_at);die;
+
     	//添加主表信息
     	$sum = $cnt = $mark = 0;
     	$sn = date('YmdHis').mt_rand(1000,9999);
@@ -71,11 +69,6 @@ class Orders extends Model
     public static function findOrdersByUid($uid)
     {
          return DB::table('shop_orders')->where('user_id', '=', $uid)->get();
-    }
-
-        public static function delOrdersByOid($oid)
-    {
-         return DB::table('shop_orders')->where('oid', '=', $oid)->get();
     }
 
     //修改订单状态

@@ -11,12 +11,16 @@ use DB;
 class CatesController extends Controller
 {
     public static function getCates()
-    {
+    {   
+        //新建一个表path与id连接临时表查询排序
          $cates_data = Cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->get();
+         //遍历每个数据中有几个,得知是几级分类
        foreach($cates_data as $key=>$value){
           $n = substr_count($value->path,',');
+          //|----与类名连接起来 
           $cates_data[$key]->cname = str_repeat('|----',$n).$value->cname;
        }
+       //返回改变后的分类名
        return $cates_data;
     }
     /**
@@ -27,7 +31,7 @@ class CatesController extends Controller
     public function index(Request $request)
     {
        // $cates_data = Cates::all();
-      
+      //使用静态变量调用函数获取数据
       return view('admin.cates.index',['cates_data'=>self::getCates()]);
     }
 
@@ -37,7 +41,8 @@ class CatesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create($id = 0)
-    {
+    {       
+        //获取所要添加类别默认为顶级分类
           $cates_data =Cates::all();
         return view('admin.cates.create',['id'=>$id,'cates_data'=>self::getCates()]);
     }
@@ -65,7 +70,7 @@ class CatesController extends Controller
              }
 
 
-
+             //添加分类
             $cates = new Cates;
             $cates->cname = $data['cname'];
             $cates->pid =  $data['pid'];
@@ -122,15 +127,17 @@ class CatesController extends Controller
      */
     public function destroy($id)
     {
+        //获取当前的地址栏的地址
         $url = $_SERVER['HTTP_REFERER'];
-        
+        //查看该分类下面是否有子级分类
         $child_data = Cates::where('pid',$id)->first();
-
+        //有的话不能删除
         if($child_data) {
             
             return redirect("$url")->with('error','当前下面有子分类,不能删除');
              
         }
+        //没有子级执行删除分类操作
         if(Cates::destroy($id)){
             return redirect('/cates')->with('success','删除成功');
         }else{

@@ -69,6 +69,7 @@ Route::resource('sets','admin\SetsController');
  Route::get('/admin/advices/reback','admin\AdvicesController@edit');
  Route::resource('admin/advices','admin\AdvicesController');
 
+
 // 佳旗前台路由
 
 // 前台首页
@@ -84,10 +85,13 @@ Route::get('home/login/regist','home\LoginController@regist');
 // 前台列表页
 Route::get('home/cates/index/{id}','home\CatesController@index');
 // 我的关注
-Route::resource('home/concern','home\ManageController');
-Route::get('home/concern/index','home\ManageController@index');
+Route::get('/home/concern/index','home\ManageController@index');
+Route::get('/home/concern/create/{id}','home\ManageController@create');
+Route::get('/home/concern/destroy/{id}','home\ManageController@destroy');
+
 // 意见反馈
-Route::get('home/concern/complaint','home\ManageController@complaint');
+Route::get('home/advices/index','home\AdvicesController@index');
+Route::post('home/advices/store','home\AdvicesController@store');
 
 // 前台详情页   本人二次
 Route::get('home/goods/detail/{id}','home\GoodsController@detail');
@@ -123,6 +127,9 @@ Route::resource('admin/phb','admin\PhbController');
 //后台 排行榜修改
 Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
 Route::post('/admin/phb/update/{id}','admin\PhbController@update');
+
+//后台 文章管理
+
 //后台 购物攻略-文章管理
 Route::resource('/admin/art','admin\ArtController');
 //后台 购物攻略-文章添加
@@ -133,3 +140,19 @@ Route::get('/admin/art/edit/{id}','admin\ArtController@edit');
 Route::post('/admin/art/update/{id}','admin\ArtController@update');
 //后台 购物攻略-文章删除
 Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
+
+
+
+ //手机注册验证
+ Route::get('/home/login/phone/{id}','home\registsController@phone');
+ Route::post('/home/login/uname','home\registsController@update');
+ //获取邮箱
+ Route::post('/home/login/email','home\registsController@create');
+ //修改密码
+ Route::get('/home/login/updateupwd','home\registsController@show');
+ Route::post('/home/login/edit','home\registsController@edit');
+//注册资源路由器
+ Route::resource('/home/login/regist','home\registsController');
+ //前台数据显示
+ Route::get('/home/index/index','home\HomeController@lbts');
+

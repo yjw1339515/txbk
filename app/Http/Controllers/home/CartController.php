@@ -10,6 +10,7 @@ use App\Admin\Users;
 use App\Home\Orders;
 use App\Home\Details;
 
+
 class CartController extends Controller
 {
     /**
@@ -80,9 +81,11 @@ class CartController extends Controller
             $goods = [];
         }else{
           $goods = $_SESSION['car'];  
-          // dump($goods);die;          
-          foreach($goods as $v){
+           // dump($goods);die;          
+          foreach($goods as $k=>$v){
+            // dump($goods);
             $sumprice += $v["cnt"]*$v["gprice"];
+            // dump($sumprice);die;
 
           }
         }
@@ -95,9 +98,10 @@ class CartController extends Controller
         session_start();
         $gid = $request->input('gid');
         $cnt = $request->input('cnt');
+        $gprice = $request->input('gprice');
         $_SESSION["car"][$gid]["cnt"] = $cnt;
-
         $sum = 0;
+        
         foreach($_SESSION["car"] as $k=>$v){
             $sum += $v['cnt']*$v['gprice'];
         }
@@ -107,12 +111,11 @@ class CartController extends Controller
 
          return response()->json(['data'=>$data]);
 
-
-        
     }
     // 删除指定id的商品
     public function destroy(Request $request)
     {
+
         session_start();
         $id = $request->input('gid');
         if (array_key_exists($id,$_SESSION['car'])) {
@@ -150,16 +153,11 @@ class CartController extends Controller
     {
         session_start();
         $goods =  $_SESSION['car'];
-        // $data['oid'] = $oid = date('YmdHis').mt_rand(1000,9999);
-        // $data['sumprice'] = $_SESSION['car']['gprice'];
-        // $data['cnt'] = $_SESSION['car']['cnt'];
-        // $data['users_uid'] = $_SESSION['car']['users_uid'];
-        // $data['created_at'] = time();
-        // dump($data);die;
+
        $orders = Orders::createOrder($goods);
        unset($_SESSION['car']);
        // dump($orders);die;
-       return view('home/goods/qry',['orders=>$orders']);
+       return view('home/goods/qry',['orders'=>$orders]);
     }
 
 }

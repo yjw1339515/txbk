@@ -16,6 +16,7 @@ class SetsController extends Controller
      */
     public function index()
     {
+        //获取所有数据
         $data = Sets::all();
         return view('admin.sets.index',['data'=>$data]);
     }
@@ -72,16 +73,19 @@ class SetsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //查找所在的数据
          $file =Sets::find($id);
         $data = $request->all();
+        //创建文件对象
          if ($request->hasFile('logo')) {
            $file_name = $file->logo;
+        //删除原有文件
          $res = Storage::delete($file_name);
          $new_file =  $request->file('logo')->store('images');
-
+        //保存文件名
           $file->logo = $new_file;
         }
-   
+            //修改信息
           $file->xukezheng = $data['xukezheng'];
           $file->kefuphone = $data['kefuphone'];
           $file->weihu = $data['weihu'];

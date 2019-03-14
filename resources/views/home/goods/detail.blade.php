@@ -66,7 +66,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="Index.html"><img src="/static/home/images/logo.png" /></a></div>
+    <div class="logo"><a href="/home/index/index"><img src="/static/home/images/logo.png" /></a></div>
     <div class="search">
     <form action="/goods/car/{{$goods->id}}" method="post">
             <input type="text" value="" class="s_ipt" />
@@ -172,18 +172,18 @@
                             
         <div id="tsShopContainer">
             <div id="tsImgS"><a href="/static/home/images/p_big.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img src="/static/home/images/{{ $goods->gpic }}"  width="390" height="390" /></a></div>
-            <div id="tsPicContainer">
+<!--             <div id="tsPicContainer">
                 <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
                 <div id="tsImgSCon">
                     <ul>
                     @foreach ($goods as $k => $v)
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods->sm_gpic}}" tsImgS="/static/images/ps1.jpg" width="79" height="79" />
+                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="/static/home/images/{{$goods['gpic']}}" tsImgS="/static/images/ps1.jpg" width="79" height="79" />
                         </li>
                     @endforeach
                     </ul>
                 </div>
                 <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
-            </div>
+            </div> -->
             <img class="MagicZoomLoading" width="16" height="16"  alt="Loading..." />               
         </div>
         
@@ -242,13 +242,11 @@
             </div>    
 
         </div>    
-        
+
         <div class="s_brand">
             <div class="s_brand_img"><img src="/static/home/images/sbrand.jpg" width="188" height="132" /></div>
             <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
         </div>    
-        
-        
     </div>
     <div class="content mar_20">
         <div class="l_history">
