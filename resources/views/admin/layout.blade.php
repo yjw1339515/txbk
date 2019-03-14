@@ -132,6 +132,12 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="#"><i class="icon-barcode"></i> 订单管理</a>
+                        <ul>
+                            <li><a href="/admin/orders">订单列表</a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#"><i class="icon-cd"></i> 轮播图管理</a>
                         <ul>
                             <li><a href="/lbts">轮播图列表</a></li>

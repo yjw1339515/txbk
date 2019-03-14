@@ -41,7 +41,7 @@
             </div>
             <div class="" style="margin-top:20px;margin-bottom:20px;">
                 <label class="users_desc" style="font-size:18px;margin-left:95px;margin-top:30px;width:200px;">收货信息：</label>
-                <input type="text" name="addr" value="{{$users->addr}}" placeholder="请输入需要保存的收货地址、收货人名称（姓名或昵称）。" style="display:block;width:65%;height:85px;float:right;margin-top:0px;text-align:center;font-size:18px;">
+                <input type="text" name="addr" value="{{$users->addr}}" placeholder="请输入需要保存的收货地址、收货人名称（姓名或昵称）、收货人联系方式（电话）。" style="display:block;width:65%;height:85px;float:right;margin-top:0px;text-align:center;font-size:18px;">
             </div>
             <br>
             <br>

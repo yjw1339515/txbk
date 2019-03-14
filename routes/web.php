@@ -131,9 +131,6 @@ Route::resource('admin/phb','admin\PhbController');
 //后台 排行榜修改
 Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
 Route::post('/admin/phb/update/{id}','admin\PhbController@update');
-
-//后台 文章管理
-
 //后台 购物攻略-文章管理
 Route::resource('/admin/art','admin\ArtController');
 //后台 购物攻略-文章添加
@@ -144,6 +141,11 @@ Route::get('/admin/art/edit/{id}','admin\ArtController@edit');
 Route::post('/admin/art/update/{id}','admin\ArtController@update');
 //后台 购物攻略-文章删除
 Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
+//后台 订单管理-查询
+Route::resource('admin/orders','admin\OrdersController');
+//后台 订单管理-修改订单信息
+Route::get('/admin/orders/edit/{id}','admin\OrdersController@edit');
+Route::post('/admin/orders/update/{id}','admin\OrdersController@update');
 
 
 
