@@ -19,10 +19,24 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         // $data = $request->all();
-        $data2 = $request->except(['_token','x','y']);
+        $data = $request->except(['_token','x','y']);
         DB::beginTransaction();
-        $users = DB::table('users')->where('uid',$id)->update($data2);
-        if($users){
+
+           //创建文件对象
+        $file = $request->file('photo');
+        $file_name = $file->store('user');
+           // 添加商品信息
+        $goods = Users::find($id);
+        $goods->ucall = $data['ucall'];
+        $goods->photo = $file_name;
+        $goods->sex = $data['sex'];
+        $goods->birth = $data['birth'];
+        $goods->email = $data['email'];
+        $goods->tel = $data['tel'];
+        $goods->addr = $data['addr'];
+        $res =  $goods->save();
+
+        if($res){
             DB::commit();
             return back();
         }else{
@@ -30,4 +44,5 @@ class UsersController extends Controller
             return back();
         }
     }
+
 }

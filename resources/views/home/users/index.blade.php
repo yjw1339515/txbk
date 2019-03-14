@@ -2,15 +2,13 @@
 @section('content')
 <div style="width:100%;background-color:#f6f6f6;">
     <div class="users_info" style="width:75%;height:auto!important;margin-left:12.5%;margin-right:12.5%;margin-top:0px;padding-top:40px;background-color:#f6f6f6;">
+        <form class="" action="/users/update/{{$users->uid}}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <div class="users_photo" style="width:220px;height:220px;margin-left:25px;margin-right:35px;margin-top:62px;margin-bottom:40px;float:right;text-align:center;">
-            <a href="#">
-                <img src="{{$users->photo}}" title="点击可修改头像" style="width:220px;height:220px;">
-            </a>
-            头像预览，点击图片可以修改
+                <img src="/uploads/{{$users->photo}}" title="{{$users->uname}}" style="width:220px;height:220px;">
+                <input type="file" name="photo" placeholder="修改头像">
         </div>
         <span style="display:block;padding-bottom:0;padding-top:0px;color: #e4393c;border-bottom: 2px solid #e4393c;font-weight: 700;cursor:pointer;text-decoration:none;text-indent:4em;font-size:24px;font-family:微软雅黑;line-height:60px;">个人信息</span>
-        <form class="" action="/users/update/{{$users->uid}}" method="post">
-            {{ csrf_field() }}
             <div class="" style="margin-top:40px;margin-bottom:20px;">
                 <label class="users_desc" style="font-size:18px;margin-left:95px;margin-top:30px;width:200px;">用户名：</label>
                 <span style="display:block;width:37.5%;float:right;margin-top:0px;text-align:center;font-size:22px;">{{$users->uname}}</span>
