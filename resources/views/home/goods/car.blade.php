@@ -1,11 +1,11 @@
 @extends('home.layout')
 @section('content')
 
-<div class="i_bg">  
+<div class="i_bg">
     <div class="content mar_20">
-    	<img src="/static/home/images/img1.jpg" />        
+    	<img src="/static/home/images/img1.jpg" />
     </div>
-    
+
     <!--Begin 第一步：查看购物车 Begin -->
     <div  class="content mar_20">
     	<table border="0" class="car_tab" style="width:1200px; margin-bottom:50px;" cellspacing="0" cellpadding="0">
@@ -27,7 +27,7 @@
                 <td align="center">
                     <div class="c_num">
                         <input type="button" onclick="goodsJian(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_1" />
-                        <input type="text" id="cnt{{$v['gid']}}"  value="{{$v['cnt']}}" name="" class="car_ipt" />  
+                        <input type="text" id="cnt{{$v['gid']}}"  value="{{$v['cnt']}}" name="" class="car_ipt" />
                         <input type="button"  onclick="goodsJia(this,{{$v['gid']}},{{$v['gprice']}});" class="car_btn_2" />
                     </div>
                 </td>
@@ -49,20 +49,20 @@
             </td>
           </tr>
         </table>
-        
+
     </div>
-	<!--End 第一步：查看购物车 End--> 
-    
-    
+	<!--End 第一步：查看购物车 End-->
+
+
     <!--Begin 弹出层-删除商品 Begin-->
     <div id="fade" class="black_overlay"></div>
-    <div id="MyDiv" class="white_content">             
+    <div id="MyDiv" class="white_content">
         <div class="white_d">
             <div class="notice_t">
                 <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv('MyDiv','fade')"><img src="/static/home/images/close.gif" /></span>
             </div>
             <div class="notice_c">
-           		
+
                 <table border="0" align="center" style="font-size:16px;" cellspacing="0" cellpadding="0">
                   <tr valign="top">
                     <td>您确定要把该商品移除购物车吗？</td>
@@ -71,10 +71,10 @@
                     <td><a href=""  class="b_sure">确定</a><a href="#" class="b_buy">取消</a></td>
                   </tr>
                 </table>
-                    
+
             </div>
         </div>
-    </div>    
+    </div>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
@@ -97,7 +97,7 @@
 
       //加的效果
     function goodsJia(obj,gid,gprice){
-        
+
           var n=$(obj).prev().val();
 
           var num=parseInt(n)+1;
@@ -112,17 +112,17 @@
                 data:"gid="+gid+"&gprice="+gprice+"&cnt="+num,
                 dataType: "json",
                 success:function (data){
-                  
+
                   $('#zongji').html(data.data.sum);
                 }
               })
 
-      
+
     }
 
   //减的效果
     function goodsJian(obj,gid,gprice){
-        
+
           var n=$(obj).next().val();
 
           var num=parseInt(n)-1;
@@ -150,5 +150,3 @@
 
 @endsection
     <!--End 弹出层-删除商品 End-->
-
-

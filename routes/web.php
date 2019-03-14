@@ -122,6 +122,10 @@ Route::get('home/orders/del/{oid}','home\OrdersController@del');
 Route::resource('phb','home\PhbController');
 //前台 购物攻略-文章浏览
 Route::get('/article','home\ArtController@index');
+//前台 个人信息
+Route::get('/users/index/{id}','home\UsersController@index');
+//前台 个人信息修改
+Route::post('/users/update/{id}','home\UsersController@update');
 //后台 排行榜管理 列表显示
 Route::resource('admin/phb','admin\PhbController');
 //后台 排行榜修改
@@ -155,4 +159,3 @@ Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
  Route::resource('/home/login/regist','home\registsController');
  //前台数据显示
  Route::get('/home/index/index','home\HomeController@lbts');
-
