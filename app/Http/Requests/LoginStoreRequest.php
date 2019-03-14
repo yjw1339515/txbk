@@ -26,6 +26,7 @@ class LoginStoreRequest extends FormRequest
         return [
                 'uname' => 'required|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
                 'upwd' => 'required|regex:/^[\w]{8,16}$/',
+                'code' => ['required', 'captcha'],
             ];
     }
     // 自定义错误信息
@@ -37,6 +38,8 @@ class LoginStoreRequest extends FormRequest
                 'upwd.required'=>'密码必填',
                 'upwd.regex'=>'密码格式不正确',
                 'reupwd.required'=>'确认密码必填',
+                'code.required' => '验证码不能为空',
+                'code.captcha' => '请输入正确的验证码',
             ];
     }
 }

@@ -17,9 +17,9 @@ class CatesController extends Controller
      */
     public function index($id)
     {
-        
+        // 根据id获取信息
         $goods = Goods::where('cid','=',$id)->get();
-        // dd($data);
+        // 显示模板,传送信息
         return view('/home/cates/index',['goods'=>$goods]);
     }
 

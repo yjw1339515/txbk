@@ -100,15 +100,19 @@
         </div>
         <div class="fresh_mid">
             <ul>
-                @foreach($goods as $kk => $vv)
+                 @foreach ($v['sub'] as $kk => $vv)
+                @foreach($goods as $kkk => $vvv)
+                 @if($vvv->cid = $vv->pid )
                 <li>
                     <div class="name"><a href="#">{{$v -> cname}}</a></div>
                     <div class="price">
-                        <font>￥<span>{{$vv->gprice}}</span></font> &nbsp; 
+                        <font>￥<span>{{$vvv->gprice}}</span></font> &nbsp; 
                     </div>
-                    <div class="img"><a href="#"><img src="/static/home/images/{{$vv->gpic}}" width="185" height="155" /></a></div>
+                    <div class="img"><a href="#"><img src="/static/home/images/{{$vvv->gpic}}" width="185" height="155" /></a></div>
                 </li>
+                @endif
                 @endforeach
+                 @endforeach
             </ul>
         </div>
         <div class="fresh_right">

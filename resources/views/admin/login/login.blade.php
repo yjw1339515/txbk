@@ -23,13 +23,33 @@
 </head>
 
 <body>
-
+           
+             </div>
     <div id="mws-login-wrapper">
         <div id="mws-login">
             <h1>后台登录</h1>
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
+
                 <form class="mws-form" action="/admin/login/dologin" method="post">
+
+                    <!-- 显示错误消息 开始 -->
+                    @if (count($errors) > 0)
+                            <div class="mws-form-message error">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    @if (session('error'))
+                        <div class="mws-form-message error">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                     <!-- 显示错误消息 结束 -->
+                    
                     {{csrf_field()}}
                     <div class="mws-form-row">
                         <div class="mws-form-item">
@@ -43,7 +63,8 @@
                     </div>
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="password" name="" class="mws-login-password required" placeholder="验证码">
+                            <input type="password" name="code" class="mws-login-password required{{ $errors->has('captcha') ? ' is-invalid' : '' }}" placeholder="验证码">
+                            <img class="thumbnail captcha mt-3 mb-2" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
                         </div>
                     </div>
                     <div class="mws-form-row">

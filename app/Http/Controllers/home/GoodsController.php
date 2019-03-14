@@ -4,6 +4,7 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Admin\Goods;
 
 class GoodsController extends Controller
 {
@@ -14,7 +15,7 @@ class GoodsController extends Controller
      */
     public function detail($id)
     {
-        echo $id;die;
+        
         $goods = Goods::where('gid',$id)->first();
         if(true){
             return view('home.goods.detail');
