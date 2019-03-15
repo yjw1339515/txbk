@@ -1,6 +1,5 @@
 @extends('home.layout')
 @section('content')
-
 <div class="i_bg bg_color">
     <div class="i_ban_bg">
         <!--Begin Banner Begin-->
@@ -258,11 +257,9 @@
         </div>
         <div class="fresh_mid">
             <ul>
-
                 <li>
                     <div class="name"><a href="#">新鲜美味  进口美食</a></div>
                     <div class="price">
-
                         <font>￥<span>198.00</span></font> &nbsp; 26R
                     </div>
                     <div class="img"><a href="#"><img src="/static/home/images/fre_1.jpg" width="185" height="155" /></a></div>
@@ -302,7 +299,6 @@
                     </div>
                     <div class="img"><a href="#"><img src="/static/home/images/fre_6.jpg" width="185" height="155" /></a></div>
                 </li>
-
             </ul>
         </div>
         <div class="fresh_right">
@@ -810,5 +806,4 @@
         </div>
     </div>
     <!--End 猜你喜欢 End-->
-
 @stop
