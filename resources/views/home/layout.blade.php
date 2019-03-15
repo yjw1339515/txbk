@@ -26,9 +26,6 @@
     <script type="text/javascript" src="/static/home/js/tban.js"></script>
    <script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
    <script type="text/javascript" src="/static/home/js/n_nav.js"></script>
-<title>尤洪</title>
-=======
-   
 	<script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
     
 <title>天下白库商城</title>
