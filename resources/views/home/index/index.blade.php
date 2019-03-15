@@ -1,8 +1,5 @@
 @extends('home.layout')
 @section('content')
-
-
-        
 <div class="i_bg bg_color">
     <div class="i_ban_bg">
         <!--Begin Banner Begin-->
@@ -260,6 +257,7 @@
         </div>
         <div class="fresh_mid">
             <ul>
+<<<<<<< HEAD
                 <li>
                     <div class="name"><a href="#">新鲜美味  进口美食</a></div>
                     <div class="price">
@@ -302,6 +300,53 @@
                     </div>
                     <div class="img"><a href="#"><img src="/static/home/images/fre_6.jpg" width="185" height="155" /></a></div>
                 </li>
+=======
+
+                <li>
+                    <div class="name"><a href="#">新鲜美味  进口美食</a></div>
+                    <div class="price">
+
+                        <font>￥<span>198.00</span></font> &nbsp; 26R
+                    </div>
+                    <div class="img"><a href="#"><img src="/static/home/images/fre_1.jpg" width="185" height="155" /></a></div>
+                </li>
+                <li>
+                    <div class="name"><a href="#">新鲜美味  进口美食</a></div>
+                    <div class="price">
+                        <font>￥<span>198.00</span></font> &nbsp; 26R
+                    </div>
+                    <div class="img"><a href="#"><img src="/static/home/images/fre_2.jpg" width="185" height="155" /></a></div>
+                </li>
+                <li>
+                    <div class="name"><a href="#">新鲜美味  进口美食</a></div>
+                    <div class="price">
+                        <font>￥<span>198.00</span></font> &nbsp; 26R
+                    </div>
+                    <div class="img"><a href="#"><img src="/static/home/images/fre_3.jpg" width="185" height="155" /></a></div>
+                </li>
+                <li>
+                    <div class="name"><a href="#">新鲜美味  进口美食</a></div>
+                    <div class="price">
+                        <font>￥<span>198.00</span></font> &nbsp; 26R
+                    </div>
+                    <div class="img"><a href="#"><img src="/static/home/images/fre_4.jpg" width="185" height="155" /></a></div>
+                </li>
+                <li>
+                    <div class="name"><a href="#">新鲜美味  进口美食</a></div>
+                    <div class="price">
+                        <font>￥<span>198.00</span></font> &nbsp; 26R
+                    </div>
+                    <div class="img"><a href="#"><img src="/static/home/images/fre_5.jpg" width="185" height="155" /></a></div>
+                </li>
+                <li>
+                    <div class="name"><a href="#">新鲜美味  进口美食</a></div>
+                    <div class="price">
+                        <font>￥<span>198.00</span></font> &nbsp; 26R
+                    </div>
+                    <div class="img"><a href="#"><img src="/static/home/images/fre_6.jpg" width="185" height="155" /></a></div>
+                </li>
+
+>>>>>>> 9fb53640e81fdf7252e9875a4386cb5d0e512809
             </ul>
         </div>
         <div class="fresh_right">
@@ -809,6 +854,9 @@
         </div>
     </div>
     <!--End 猜你喜欢 End-->
+<<<<<<< HEAD
     
+=======
+>>>>>>> 9fb53640e81fdf7252e9875a4386cb5d0e512809
 
 @stop

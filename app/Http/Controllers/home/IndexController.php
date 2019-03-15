@@ -30,9 +30,8 @@ class IndexController extends Controller
      */
     public function index(Request $request)
     {
-        // 获取数据库信息
-        $goods = Goods::get();
-        return view('home.index.index',['show'=>true,'goods'=>$goods]);
+        
+        return view('home.index.index',['show'=>true]);
     }
 
     /**

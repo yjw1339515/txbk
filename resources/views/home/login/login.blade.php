@@ -30,7 +30,7 @@
 	<script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
     
     
-<title>尤洪</title>
+<title></title>
 </head>
 <body>  
 <!--Begin Header Begin-->
