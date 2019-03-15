@@ -26,9 +26,10 @@
     <script type="text/javascript" src="/static/home/js/tban.js"></script>
    <script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
    <script type="text/javascript" src="/static/home/js/n_nav.js"></script>
-	<script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
-    
+
+   
 <title>天下白库商城</title>
+
 </head>
 <body>
 <!--Begin Header Begin-->
@@ -96,9 +97,15 @@
         <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
             <ul class="cars">
+<<<<<<< HEAD
                 <div class="un_login"></div>
             	<li>
 
+=======
+
+                <div class="un_login"></div>
+            	<li>
+>>>>>>> origin/xiaoqi
                 	<div class="img"><a href="#"><img src="/static/home/images/car1.jpg" width="58" height="58" /></a></div>
                     <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
@@ -118,12 +125,11 @@
     	<!--Begin 商品分类详情 Begin-->
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
-            @if (!empty($show))
+            
             <div class="leftNav">
-            @else
-            <div class="leftNav none">
-            @endif
+           
                 <ul>
+                    <a href="" hidden>{{ $num = 0 }}</a>
                     @foreach ( $common_cates_data as $k => $v)
 
                     <li>
@@ -131,7 +137,7 @@
                         	<span class="n_img"><span></span></span>
                             <span class="fl">{{$v -> cname}}</span>
                         </div>
-                        <div class="zj"  ">
+                        <div class="zj"  style="top:{{ $num  }}px;">
 
                             <div class="zj_l" >
 
@@ -149,10 +155,12 @@
                             </div>
                         </div>
                     </li>
+                    <a href="" hidden>{{ $num -= 40 }}</a>
                         @endforeach
                 </ul>
             </div>
         </div>
+
         <!--End 商品分类详情 End-->
 
     	<ul class="menu_r">
