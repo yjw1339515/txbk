@@ -4,6 +4,9 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Admin\Goods;
+use App\Admin\Cates;
+
 
 class CatesController extends Controller
 {
@@ -12,9 +15,14 @@ class CatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$id = 0)
     {
-        return view('/home/cates/index');
+        
+        // 根据id获取信息
+        $goods = Goods::where('cid','=',$id)->get();
+        $count = $request->input('count',10);
+        // 显示模板,传送信息
+        return view('/home/cates/index',['goods'=>$goods,'request'=>$request->all()]);
     }
 
     /**
@@ -22,9 +30,14 @@ class CatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $count = $request->input('count',10);
+        $search = $request->input('search','');
+
+        $data = Goods::where('gname','like','%'.$search.'%')->paginate($count);
+        return view('/home/cates/index',['goods'=>$data,'request'=>$request->all()]);
+        
     }
 
     /**

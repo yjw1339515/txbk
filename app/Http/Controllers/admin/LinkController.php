@@ -44,7 +44,7 @@ class LinkController extends Controller
 
         //图片上传
         // 使用request 创建文件上传对象
-        $images = $request -> file('images');   
+        $images = $request -> file('images');
         // 获取文件后缀名
         $ext = $images->getClientOriginalExtension();
         // 处理文件名称

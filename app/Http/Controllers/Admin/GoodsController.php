@@ -63,6 +63,7 @@ class GoodsController extends Controller
             $goods->stock = $data['stock'];
             $goods->gdesc = $data['gdesc'];
             $goods->cid = $data['cid'];
+
            $res =  $goods->save();
            //判断添加是否成功
         if($res){

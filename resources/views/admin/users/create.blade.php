@@ -42,13 +42,13 @@
                                 <div class="mws-form-row">
                                     <label class="mws-form-label">密码:</label>
                                     <div class="mws-form-item">
-                                        <input type="text"  name="upwd" class="small" >
+                                        <input type="password"  name="upwd" class="small" >
                                     </div>
                                 </div>
                                 <div class="mws-form-row">
                                     <label class="mws-form-label">确认密码:</label>
                                     <div class="mws-form-item">
-                                        <input type="text"  name="reupwd" class="small">
+                                        <input type="password"  name="reupwd" class="small">
                                     </div>
                                 </div>
                                 <div class="mws-form-row">

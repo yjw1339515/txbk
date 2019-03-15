@@ -3,7 +3,9 @@
 namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use View;
-use App\Http\Controllers\Admin\CatesController;
+
+use App\Http\Controllers\home\IndexController;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-       View::share('common_cates_data',CatesController::getCates());
+        // 数据共享
+       View::share('common_cates_data', IndexController::getPidCates());
 
     }
 

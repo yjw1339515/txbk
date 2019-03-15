@@ -4,6 +4,9 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Users;
+use Hash;
+use App\Http\Requests\LoginStoreRequest;
 
 class LoginController extends Controller
 {
@@ -14,19 +17,57 @@ class LoginController extends Controller
      */
     public function login()
     {
+        // 显示模板
         return view('home.login.login');
     }
 
     /**
-     * Show the form for creating a new resource.
+     *登录验证
      *
      * @return \Illuminate\Http\Response
      */
-    public function dologin()
+    public function dologin(LoginStoreRequest $request)
     {
+        // 获取用户名
+        $uname = $request->input('uname');
+        // 获取密码
+        $upwd = $request->input('upwd');
+        
+        // 通过用户名获取数据
+        $users = Users::where('uname','=', $uname)->get();
+
+
+        // 密码对比
+        if (!Hash::check($upwd, $users[0]->upwd)) {
+            // 密码对比...
+            //错误返回原来页面
+            return back()->with('error','账号或密码错误!');
+        }
+        
+        // 判断users是否有数据
+        if($users){
+            $data = $users[0];
+            //把数据存入session
+            session(['homeUsers'=> $data]); 
+            // 成功后跳转
+            return redirect('/home/index/index')->with('success','登录成功!');
+        }
+       
+      
         
     }
+    /**
+     *退出
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logout()
+    {
+       
+       session()->flush();
 
+        return redirect('/home/index/index')->with('success','退出成功!');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -35,6 +76,7 @@ class LoginController extends Controller
      */
     public function regist()
     {
+        // 显示模板
         return view('home.login.regist');
     }
 

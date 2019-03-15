@@ -4,17 +4,35 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Admin\Cates;
+use App\Admin\Goods;
 
 class IndexController extends Controller
 {
+    public static function getPidCates($pid = 0)
+    {
+        // 获取一级分类
+        $cates_data = Cates::where('pid',$pid)->get();
+        $array = [];
+        // 递归获取下级分类
+        foreach ($cates_data as $k => $v ) {
+            $v['sub'] = self::getPidCates($v->id);
+            // 将获取的数据存入数组
+            $array[] = $v;
+        }
+        // 返回数组
+        return $array;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home.index.index');
+        // 获取数据库信息
+        $goods = Goods::get();
+        return view('home.index.index',['show'=>true,'goods'=>$goods]);
     }
 
     /**

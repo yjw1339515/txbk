@@ -20,13 +20,14 @@ function jianUpdate(jian){
 
 
 
-function addUpdate1(jia){		
+function addUpdate1(jia,gprice,gid){		
 	var c = jia.parent().find(".car_ipt").val();
-	c=parseInt(c)+1;	
+	c=parseInt(c)+1;
 	jia.parent().find(".car_ipt").val(c);
+	document.getElementById("xiaoji"+gid).innerHTML = gprice*c;
 }
 
-function jianUpdate1(jian){    
+function jianUpdate1(jian,gprice,gid){    
 	var c = jian.parent().find(".car_ipt").val();
 	if(c==1){    
 		c=1;    
@@ -34,4 +35,5 @@ function jianUpdate1(jian){
 		c=parseInt(c)-1;    
 		jian.parent().find(".car_ipt").val(c);
 	}
+	document.getElementById("xiaoji"+gid).innerHTML = gprice*c;
 }    
