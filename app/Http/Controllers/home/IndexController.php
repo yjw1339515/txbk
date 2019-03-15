@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Cates;
 use App\Admin\Goods;
-
+use App\Admin\Link;
 class IndexController extends Controller
 {
     public static function getPidCates($pid = 0)
@@ -32,7 +32,8 @@ class IndexController extends Controller
     {
         // 获取数据库信息
         $goods = Goods::get();
-        return view('home.index.index',['show'=>true,'goods'=>$goods]);
+        $link = Link::get();
+        return view('home.index.index',['show'=>true,'goods'=>$goods,'link'->$link]);
     }
 
     /**

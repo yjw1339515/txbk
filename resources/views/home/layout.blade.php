@@ -253,16 +253,16 @@
    <p style="height: 100%;">
     @if(!empty($link))
     @foreach($link as $k=>$v)
-        @if($v['limg'])
-        <a target="_blank" href="https://{{$v['lurl']}}" style="float:left;">
+        @if($v['images'])
+        <a target="_blank" href="https://{{$v['url']}}" style="float:left;">
             <span style="display:bloak;">
-                <img  src="{{URL::asset($v['limg'])}}" style="width:70px;height:30px;border-radius:4px" /> 
+                <img  src="{{URL::asset($v['images'])}}" style="width:70px;height:30px;border-radius:4px" /> 
             </span>
         </a>
         <b>|</b>
         @else
-        <a target="_blank" href="https://{{$v['lurl']}}">
-            <span style="margin-left:5px;">{{$v['lname']}}</span>
+        <a target="_blank" href="https://{{$v['url']}}">
+            <span style="margin-left:5px;">{{$v['title']}}</span>
         </a>
         <b>|</b>
         @endif
@@ -272,7 +272,7 @@
 
     <div class="btmbg">
 		<div class="btm">
-        	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
+        	备案/许可证编号：蜀ICP备12009302号-1-www.txbk.com   Copyright © 2018-2019 天下白库商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
 
             <img src="/static/home/images/b_1.gif" width="98" height="33" />
 

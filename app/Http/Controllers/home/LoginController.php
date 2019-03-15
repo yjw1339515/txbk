@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Users;
 use Hash;
 use App\Http\Requests\LoginStoreRequest;
+use App\Admin\Link;
 
 class LoginController extends Controller
 {
@@ -28,7 +29,7 @@ class LoginController extends Controller
      */
     public function dologin(LoginStoreRequest $request)
     {
-        // 获取用户名
+          // 获取用户名
         $uname = $request->input('uname');
         // 获取密码
         $upwd = $request->input('upwd');
@@ -43,14 +44,13 @@ class LoginController extends Controller
             //错误返回原来页面
             return back()->with('error','账号或密码错误!');
         }
-        
-        // 判断users是否有数据
+        $link = Link::get();
         if($users){
             $data = $users[0];
             //把数据存入session
             session(['homeUsers'=> $data]); 
             // 成功后跳转
-            return redirect('/home/index/index')->with('success','登录成功!');
+            return redirect('/home/index/index',['link'=>$link])->with('success','登录成功!');
         }
        
       
