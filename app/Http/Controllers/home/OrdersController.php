@@ -21,9 +21,10 @@ class OrdersController extends Controller
         $orders = Orders::findOrdersByUid(session("homeUsers.uid"));
         $users= session()->get('homeUsers');
         $addr = $users['addr'];
+        $orders->addr = $addr;
         
         // 显示页面
-        return view('home/orders/index',['orders'=>$orders,'addr'=>$addr]);
+        return view('home/orders/index',['orders'=>$orders]);
     }
 
     /**

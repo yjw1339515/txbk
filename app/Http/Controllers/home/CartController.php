@@ -147,7 +147,7 @@ class CartController extends Controller
         foreach($_SESSION["car"] as $k=>$v){
             $sum += $v['cnt']*$v['gprice'];
         }
-        return view('home/goods/orders',['goods'=>$goods,'sum'=>$sum]);
+        return view('home/goods/orders',['goods'=>$goods,'sum'=>$sum,'users'=>$users]);
     }
 
    
