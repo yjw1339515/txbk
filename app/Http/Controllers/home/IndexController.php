@@ -30,6 +30,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+        // 获取数据库信息
         $goods = Goods::get();
       
         // 显示模板

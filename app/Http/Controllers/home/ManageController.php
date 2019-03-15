@@ -40,6 +40,13 @@ class ManageController extends Controller
         // 根据id获取数据
         $goods = Goods::find($id);
         $data_id = $goods['cid'];
+        // 判断用户是否登录
+        if(empty(session()->get('homeUsers'))){
+        
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','添加成功');
+            }else{
+        } 
         // 获取用户名
         $data = session()->get('homeUsers');
         $uname = $data['uname'];

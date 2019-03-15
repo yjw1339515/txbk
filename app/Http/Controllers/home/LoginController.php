@@ -40,7 +40,8 @@ class LoginController extends Controller
         // 密码对比
         if (!Hash::check($upwd, $users[0]->upwd)) {
             // 密码对比...
-            return back()->with('error','密码错误!');
+            //错误返回原来页面
+            return back()->with('error','账号或密码错误!');
         }
         
         // 判断users是否有数据
@@ -55,8 +56,8 @@ class LoginController extends Controller
       
         
     }
-     /**
-     *登录验证
+    /**
+     *退出
      *
      * @return \Illuminate\Http\Response
      */

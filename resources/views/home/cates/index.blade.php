@@ -66,7 +66,8 @@
                         </div>
                         <div class="name"><a href="#">{{ $v -> gname}}</a></div>
                         <div class="carbg">
-                        	<a href="/home/concern/create/{{$v->id}}" class="ss">收藏</a>
+                            
+                        	<a href="/home/concern/create/{{$v->id}}" class="ss">关注</a>
                             <a href="#" class="j_car">加入购物车</a>
                         </div>
                     </li>

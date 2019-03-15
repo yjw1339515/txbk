@@ -59,6 +59,22 @@
 		<div class="log_c">
         	<form action="/home/login/dologin" method="post">
             {{ csrf_field() }}
+            <!-- 显示错误消息 开始 -->
+                    @if (count($errors) > 0)
+                            <div class="mws-form-message error">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    @if (session('error'))
+                        <div class="mws-form-message error">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                     <!-- 显示错误消息 结束 -->
             <table border="0" style="width:370px; font-size:14px; margin-top:30px;" cellspacing="0" cellpadding="0">
               <tr height="50" valign="top">
               	<td width="55">&nbsp;</td>
@@ -78,8 +94,9 @@
               <tr height="50">
                 <td>验证码</td>
                 <td>
-                    <input type="text" value="" class="l_ipt" />
-                    <a href="#" style="font-size:12px; font-family:'宋体';">换一张</a>
+                    <input type="text" name="code" value="" class="l_ipt{{ $errors->has('captcha') ? ' is-invalid' : '' }}" />
+                    <img class="thumbnail captcha mt-3 mb-2" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+
                 </td>
               </tr>
               <tr>

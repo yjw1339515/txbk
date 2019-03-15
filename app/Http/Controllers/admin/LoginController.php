@@ -38,19 +38,19 @@ class LoginController extends Controller
 
 
         // 密码对比
-        if (!Hash::check($upwd, $users[0]->upwd)) {
+        if (Hash::check($upwd, $users[0]->upwd)) {
             // 密码对比...
-            return back()->with('error','密码错误!');
+           // 判断users是否有数据
+            if($users){
+                $data = $users[0];
+                //把数据存入session
+                session(['homeUsers'=> $data]); 
+                // 成功后跳转
+                return redirect('/admin')->with('success','登录成功!');
+            } 
         }
         
-        // 判断users是否有数据
-        if($users){
-            $data = $users[0];
-            //把数据存入session
-            session(['homeUsers'=> $data]); 
-            // 成功后跳转
-            return redirect('/admin')->with('success','登录成功!');
-        } 
+        return back()->with('error','账号密码错误!');
       
     }
     /**

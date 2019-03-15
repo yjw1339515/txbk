@@ -77,6 +77,7 @@ Route::get('home/index/index','home\IndexController@index');
 //前台登录
 Route::get('home/login/login','home\LoginController@login');
 Route::post('home/login/dologin','home\LoginController@dologin');
+Route::post('home/login/code','home\LoginController@code');
 // 前台退出
 Route::get('home/login/logout','home\LoginController@logout');
 
