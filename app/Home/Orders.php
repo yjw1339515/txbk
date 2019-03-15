@@ -10,12 +10,19 @@ class Orders extends Model
 {
     protected $table = 'shop_orders';
     protected $pk      = 'oid';
-
+     public $timestamps = false; //不验证时间
     // 订单主表(Orders)与详情主表(Details)的关联: 一对多
     public function details()
     {
     	return $this->hasMany('Details','orders_oid','oid'); 
     }
+
+    // 多对一   用户表
+        public function user()
+    {
+       return $this->belongsTo('app\Admin\Users','user_id');
+    }
+
 
     public static function createOrder($goods)
     {
@@ -69,6 +76,12 @@ class Orders extends Model
     public static function findOrdersByUid($uid)
     {
          return DB::table('shop_orders')->where('user_id', '=', $uid)->get();
+    }
+
+    //通过uid查找用户中的地址
+    public static function findUsersByUid($uid)
+    {
+         return DB::table('Users')->where('uid', '=', $uid)->get();
     }
 
     //修改订单状态

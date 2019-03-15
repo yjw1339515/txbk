@@ -4,26 +4,17 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Home\Orders;
-use App\Admin\Users;
-use DB;
 
-class OrdersController extends Controller
+class AddrController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // 通过用户找订单
-        $orders = Orders::findOrdersByUid(session("homeUsers.uid"));
-        $users= session()->get('homeUsers');
-        $addr = $users['addr'];
-        
-        // 显示页面
-        return view('home/orders/index',['orders'=>$orders,'addr'=>$addr]);
+        //
     }
 
     /**
@@ -31,12 +22,9 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function del(Request $request,$oid)
+    public function create()
     {
-        $goods = Orders::updateStatusByOid($oid,6);
-        return redirect("home/orders/index"); 
-        // 修改状态
-
+        //
     }
 
     /**

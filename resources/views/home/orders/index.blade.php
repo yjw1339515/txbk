@@ -18,17 +18,21 @@
             <div class="mem_tit">我的订单</div>
             <table border="0" class="order_tab" style="width:930px; text-align:center; margin-bottom:30px;" cellspacing="0" cellpadding="0">
               <tbody><tr>                                                                                                                                                    
-                <td width="20%">订单号</td>
-                <td width="25%">下单时间</td>
-                <td width="15%">订单总金额</td>
-                <td width="25%">订单状态</td>
-                <td width="15%">操作</td>
+                <td>订单号</td>
+                <td>下单时间</td>
+                <td>订单总金额</td>
+                <td>收货地址</td>
+              
+                <td>买家留言</td>
+                <td>订单状态</td>
+                <td>操作</td>
               </tr>
               @foreach($orders as $k=>$v)
               <tr>
                 <td><font color="#ff4e00">{{$v->oid}}</font></td>
                 <td>{{date('Y-m-d H:i:s',$v->created_at)}}</td>
                 <td>{{$v->sumprice}}</td>
+                <td>{{$v->addr}}</td>
                 <td>
                     @if($v->status==1)
                         未支付

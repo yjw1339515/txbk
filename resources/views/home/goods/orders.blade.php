@@ -34,39 +34,17 @@
                 </td>
               </tr>
             </table>
-
             <div class="two_t">
             	<span class="fr"><a href="#">修改</a></span>收货人信息
             </div>
+           
             <table border="0" class="peo_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td class="p_td" width="160">商品名称</td>
-                <td width="395">海贼王</td>
-                <td class="p_td" width="160">电子邮件</td>
-                <td width="395">12345678@qq.com</td>
-              </tr>
-              <tr>
-                <td class="p_td">详细信息</td>
-                <td>四川省成都市武侯区</td>
-                <td class="p_td">邮政编码</td>
-                <td>6011111</td>
-              </tr>
-              <tr>
-                <td class="p_td">电话</td>
-                <td></td>
-                <td class="p_td">手机</td>
-                <td>18600002222</td>
-              </tr>
-              <tr>
-                <td class="p_td">标志建筑</td>
-                <td></td>
-                <td class="p_td">最佳送货时间</td>
-                <td></td>
+                <span>收货地址 :</span>
+                <input type="text" name="addr" value="$addr" placeholder="" style="display:block;width:800px;height:50px;margin-left:100px;"><br><br>
               </tr>
             </table>
 
-            
-            
             <div class="two_t">
             	支付方式
             </div>

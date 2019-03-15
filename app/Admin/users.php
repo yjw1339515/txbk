@@ -10,9 +10,15 @@ class Users extends Model
     protected $pk     = 'uid'; 
     protected $fillable = ['auth','sex','email','tel','upwd','uname'];
 
-         //一对多
+         //一对多  商品表
     public function Many()
     {
         return $this->hasMany('app\Admin\Goods','cid');
+    }
+
+    // 一对多   订单表
+        public function orders()
+    {
+        return $this->hasMany('app\Home\Orders','user_id');
     }
 }

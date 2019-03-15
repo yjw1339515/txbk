@@ -9,7 +9,7 @@ use App\Admin\Cart;
 use App\Admin\Users;
 use App\Home\Orders;
 use App\Home\Details;
-
+use DB;
 
 class CartController extends Controller
 {
@@ -81,7 +81,7 @@ class CartController extends Controller
             $goods = [];
         }else{
           $goods = $_SESSION['car'];  
-           // dump($goods);die;          
+            // dump($goods);
           foreach($goods as $k=>$v){
             // dump($goods);
             $sumprice += $v["cnt"]*$v["gprice"];
@@ -141,6 +141,8 @@ class CartController extends Controller
     {
         session_start();
         $goods = $_SESSION['car'];
+
+        $users =DB::table('Users')->get();
         $sum = 0;
         foreach($_SESSION["car"] as $k=>$v){
             $sum += $v['cnt']*$v['gprice'];
@@ -151,9 +153,9 @@ class CartController extends Controller
    
     public function qry(Request $request)
     {
+         DB::beginTransaction();
         session_start();
-        $goods =  $_SESSION['car'];
-
+       $goods =  $_SESSION['car'];
        $orders = Orders::createOrder($goods);
        unset($_SESSION['car']);
        // dump($orders);die;
