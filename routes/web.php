@@ -123,14 +123,15 @@ Route::get('home/orders/del/{oid}','home\OrdersController@del');
 Route::resource('phb','home\PhbController');
 //前台 购物攻略-文章浏览
 Route::get('/article','home\ArtController@index');
+//前台 个人信息
+Route::get('/users/index/{id}','home\UsersController@index');
+//前台 个人信息修改
+Route::post('/users/update/{id}','home\UsersController@update');
 //后台 排行榜管理 列表显示
 Route::resource('admin/phb','admin\PhbController');
 //后台 排行榜修改
 Route::get('/admin/phb/edit/{id}','admin\PhbController@edit');
 Route::post('/admin/phb/update/{id}','admin\PhbController@update');
-
-//后台 文章管理
-
 //后台 购物攻略-文章管理
 Route::resource('/admin/art','admin\ArtController');
 //后台 购物攻略-文章添加
@@ -141,6 +142,11 @@ Route::get('/admin/art/edit/{id}','admin\ArtController@edit');
 Route::post('/admin/art/update/{id}','admin\ArtController@update');
 //后台 购物攻略-文章删除
 Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
+//后台 订单管理-查询
+Route::resource('admin/orders','admin\OrdersController');
+//后台 订单管理-修改订单信息
+Route::get('/admin/orders/edit/{id}','admin\OrdersController@edit');
+Route::post('/admin/orders/update/{id}','admin\OrdersController@update');
 
 
 
@@ -156,4 +162,3 @@ Route::get('/admin/art/destroy/{id}','admin\ArtController@destroy');
  Route::resource('/home/login/regist','home\registsController');
  //前台数据显示
  Route::get('/home/index/index','home\HomeController@lbts');
-

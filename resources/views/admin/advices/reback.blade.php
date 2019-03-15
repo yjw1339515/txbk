@@ -2,11 +2,11 @@
 @section('content')
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span><i class="icon-table"></i>推荐位列表</span>
+    	<span><i class="icon-table"></i>回收站</span>
     </div>
 <div class="mws-panel-body no-padding">
     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
-       
+
          <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
         <thead>
             <tr >
@@ -18,7 +18,7 @@
                   <th>操作</th>
             </tr>
         </thead>
-        
+
             <tbody role="alert" aria-live="polite" aria-relevant="all">
             @foreach($data as $k=>$v)
                     <tr class="odd" align="center">
@@ -33,20 +33,20 @@
                       <form action="/admin/advices/{{$v->id}}" method="post" style="display: inline-block">
                       {{csrf_field()}}
                       {{method_field('put')}}
-                      <button class="btn btn-danger">点击恢复</button>  
+                      <button class="btn btn-danger">点击恢复</button>
                       </form>
-                      
-                
-         
+
+
+
                         </td>
 
                     </tr>
                   @endforeach
-            
+
             </tbody>
             </table>
-          
-                     
+
+
                      </div>
             </div>
                     </div>
