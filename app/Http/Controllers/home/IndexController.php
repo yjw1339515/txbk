@@ -28,12 +28,10 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // 获取数据库信息
         $goods = Goods::get();
-      
-        // 显示模板
         return view('home.index.index',['show'=>true,'goods'=>$goods]);
     }
 

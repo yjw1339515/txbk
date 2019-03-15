@@ -84,6 +84,7 @@ Route::get('home/login/logout','home\LoginController@logout');
 Route::get('home/login/regist','home\LoginController@regist');
 // 前台列表页
 Route::get('home/cates/index/{id}','home\CatesController@index');
+Route::get('home/cates/create','home\CatesController@create');
 // 我的关注
 Route::get('/home/concern/index','home\ManageController@index');
 Route::get('/home/concern/create/{id}','home\ManageController@create');

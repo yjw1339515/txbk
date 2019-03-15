@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" type="text/css" href="/static/admin/css/mws-theme.css" media="screen">
 
-<title>MWS Admin - Login Page</title>
+<title>后台登录</title>
 
 </head>
 
