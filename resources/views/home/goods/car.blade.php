@@ -45,7 +45,7 @@
           </tr>
           <tr valign="top" height="150">
           	<td colspan="6" align="right">
-            	<a href="#"><img src="/static/home/images/buy1.gif" /></a>&nbsp; &nbsp; <a href="/home/cart/orders"><img src="/static/home/images/buy2.gif" /></a>
+            	<a href="/home/index/index"><img src="/static/home/images/buy1.gif" /></a>&nbsp; &nbsp; <a href="/home/cart/orders"><img src="/static/home/images/buy2.gif" /></a>
             </td>
           </tr>
         </table>
