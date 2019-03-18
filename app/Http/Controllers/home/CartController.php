@@ -67,13 +67,31 @@ class CartController extends Controller
         ];
         echo json_encode($return);die;
     }
+    public static function getCarGoods()
+    {
+        session_start();
+        $sumprice = 0;
+         if (!array_key_exists("car", $_SESSION)) {
+            $goods = [];
+        }else{
+          $goods = $_SESSION['car'];  
+            // dump($goods);
+          foreach($goods as $k=>$v){
+            // dump($goods);
+            $sumprice += $v["cnt"]*$v["gprice"];
+            // dump($sumprice);die;
+
+          }
+        }
+        return $goods;
+    }
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-       public function car(Request $request)
+    public function car(Request $request)
     {
         session_start();
         $sumprice = 0;
@@ -92,7 +110,6 @@ class CartController extends Controller
 
          return view('home/goods/car',['goods'=>$goods,'sumprice'=>$sumprice]); 
     }
-
     public function goodsUpdate(Request $request)
     {
         session_start();

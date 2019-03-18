@@ -66,8 +66,11 @@
                         </div>
                         <div class="name"><a href="#">{{ $v -> gname}}</a></div>
                         <div class="carbg">
-                            
+                            @if(!empty($gz))
+                            <a href="/home/concern/create/{{$v->id}}" class="ss">取消</a>
+                            @else
                         	<a href="/home/concern/create/{{$v->id}}" class="ss">关注</a>
+                            @endif
                             <a href="#" class="j_car">加入购物车</a>
                         </div>
                     </li>
@@ -84,4 +87,4 @@
         </div>
     </div>
  
-@stop
+@endsection
