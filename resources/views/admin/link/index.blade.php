@@ -55,7 +55,7 @@
                             <td>{{$v->id}}</td>   
                             <td>{{$v->title}}</td>  
                             <td>{{$v->url}}</td>    
-                            <td><img src="{{$v->images}}" alt=""></td>    
+                            <td><img src="/uploads/{{$v->images}}" alt=""></td>    
                             <td>{{$v->created_at}}</td> 
 
                             <td>

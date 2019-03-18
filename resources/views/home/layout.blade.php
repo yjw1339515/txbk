@@ -264,7 +264,7 @@
         @if($v['images'])
         <a target="_blank" href="{{$v['url']}}" style="float:left;">
             <span style="display:bloak;">
-                <img  src="{{$v['images']}}" style="width:70px;height:30px;border-radius:4px" /> 
+                <img  src="/uploads/{{$v['images']}}" style="width:70px;height:30px;border-radius:4px" /> 
             </span>
         </a>
         <b>|</b>

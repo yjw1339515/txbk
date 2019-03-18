@@ -17,7 +17,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form class="mws-form" action="/admin/link/update/{{ $link->id }}" method="post">
+                        <form class="mws-form" action="/admin/link/update/{{ $link->id }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="mws-form-inline">
                                 <div class="mws-form-row">
