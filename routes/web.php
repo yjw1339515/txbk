@@ -185,5 +185,3 @@ Route::post('/admin/orders/update/{id}','admin\OrdersController@update');
  Route::post('/home/login/edit','home\registsController@edit');
 //注册资源路由器
  Route::resource('/home/login/regist','home\registsController');
- //前台数据显示
- Route::get('/home/index/index','home\HomeController@lbts');

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin\Cates;
 use App\Admin\Goods;
+use App\Admin\Lbts;
+use App\Admin\Tjws;
+
 
 class IndexController extends Controller
 {
@@ -31,8 +34,11 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         // 获取数据库信息
+          $lbts = Lbts::all();
+        $tjws = Tjws::all();
         $goods = Goods::get();
-        return view('home.index.index',['show'=>true,'goods'=>$goods]);
+        return view('home.index.index',['show'=>true,'goods'=>$goods,'lbts'=>$lbts,'tjws'=>$tjws]);
+
     }
 
     /**
@@ -40,6 +46,20 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    // public function lbts()
+    // {
+    //     $lbts = Lbts::all();
+    //     $tjws = Tjws::all();
+    //     return view('home.index.index',['lbts'=>$lbts,'tjws'=>$tjws]);
+    // }
+
+
+
     public function create()
     {
         //

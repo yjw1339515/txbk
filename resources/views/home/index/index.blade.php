@@ -6,9 +6,9 @@
         <div class="banner">        
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="/static/home/images/ban1.jpg" width="740" height="401" /></li>
-                    <li><img src="/static/home/images/ban1.jpg" width="740" height="401" /></li> 
-                    <li><img src="/static/home/images/ban1.jpg" width="740" height="401" /></li> 
+                  @foreach($lbts as $k=>$v)
+                    <li><img src="/uploads/{{$v->logoname}}" width="740" height="401" /></li>
+                   @endforeach
                 </ul>   
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
@@ -167,9 +167,9 @@
         <div class="i_sell">
             <div id="imgPlay">
                 <ul class="imgs" id="actor">
-                    <li><a href="#"><img src="/static/home/images/tm_r.jpg" width="211" height="357" /></a></li>
-                    <li><a href="#"><img src="/static/home/images/tm_r.jpg" width="211" height="357" /></a></li>
-                    <li><a href="#"><img src="/static/home/images/tm_r.jpg" width="211" height="357" /></a></li>
+                @foreach($tjws as $k=>$v)
+                    <li><a href="#"><img src="/uploads/{{$v->tpic}}" width="211" height="357" /></a></li>
+                @endforeach
                 </ul>
                 <div class="previ">上一张</div>
                 <div class="nexti">下一张</div>
