@@ -36,7 +36,7 @@
 
    
                 
-    <script type="text/javascript" src="/static/home/js/n_nav.js"></script>   
+   @yield('menu')  
     
     <script type="text/javascript" src="/static/home/js/num.js">
         var jq = jQuery.noConflict();
@@ -79,6 +79,7 @@
 
             	<a href="/home/concern/index">我的关注</a>
                 <a href="/home/advices/index">意见反馈</a>
+                <a href="/home/cart/car">购物车</a>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
@@ -96,42 +97,13 @@
         </form>
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
-    @if(empty(session('homeUsers')))
-    <div class="i_car">
-    	<div class="car_t">购物车 [ <span>0</span> ]</div>
-        <div class="car_bg">
-       		<!--Begin 购物车未登录 Begin-->
-        	<div class="un_login">还未登录！<a href="/home/login/login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
-            <!--Begin 购物车已登录 Begin-->
-
-            <div class="price_sum">&nbsp; <font color="#ff4e00"></font><span></span></div>
-            
-            <!--End 购物车已登录 End-->
-        </div>
+    
+    <div >
+    	
+        
     </div>
     
-    @else
-    <div class="i_car">
-        <div class="car_t">购物车 [ <span>3</span> ]</div>
-        <div class="car_bg">
-            <ul class="cars">
-
-                <div class="un_login"></div>
-                @foreach($common_goods_data as $k => $v)
-            	<li>
-                	<div class="img"><a href="#"><img src="/static/home/images/{{$v['gpic']}}" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">{{$v['gname']}}</a></div>
-                    <div class="price"><font color="#ff4e00">￥{{$v['gprice']}}</font> X{{$v['cnt']}}</div>
-                </li>
-                @endforeach
-            </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span></span></div>
-            <div class="price_a"><a href="">去购物车结算</a></div>
-            <!--End 购物车已登录 End-->
-        </div>
-    </div>
-    @endif
+    
 </div>
 <!--End Header End-->
 <!--Begin Menu Begin-->
@@ -141,7 +113,7 @@
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
             
-            <div class="leftNav none">
+            @yield('none')
             
                 <ul>
                     <a href="" hidden>{{ $num = 0 }}</a>

@@ -20,15 +20,12 @@ class CatesController extends Controller
         
         // 根据id获取信息
         $goods = Goods::where('cid','=',$id)->get();
-        //获取商品名称
-        $goods_gname = $goods[0]['gname'];
-        
         //获取用户名称
         $data = session()->get('homeUsers');
         $uname = $data['uname'];
         // 根据商品名称和用户名回去数据
-        $gz = Gz::where('gname','=',$goods_gname)->where('uname','=',$uname)->get();
-        
+        $gz = Gz::where('uname','=',$uname)->get();
+        // dd($gz);
         $count = $request->input('count',10);
         // 判断传值有就传到模板,没有就穿null
         if(!empty($gz[0])){

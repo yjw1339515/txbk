@@ -2,7 +2,12 @@
 @section('content')
 
 
-
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 
 <!--End Header End--> 
 <div class="i_bg bg_color">

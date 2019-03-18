@@ -1,5 +1,9 @@
 @extends('home.layout')
 @section('content')
+
+@section('none')
+<div class="leftNav ">
+@endsection
 <div class="i_bg bg_color">
     <div class="i_ban_bg">
         <!--Begin Banner Begin-->

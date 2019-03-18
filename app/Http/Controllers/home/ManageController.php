@@ -76,10 +76,10 @@ class ManageController extends Controller
             $res = DB::table('shop_gz')->where('gid', '=', $id)->delete();
             if($res){
                 DB::commit();
-                return redirect($_SERVER['HTTP_REFERER'])->with('success','取消留言成功!');
+                return redirect($_SERVER['HTTP_REFERER'])->with('success','取消关注成功!');
             }else{
                 DB::rollBack();
-                 return redirect($_SERVER['HTTP_REFERER'])->with('error','取消留言失败!');
+                 return redirect($_SERVER['HTTP_REFERER'])->with('error','取消关注失败!');
             }
         }
         
@@ -101,10 +101,10 @@ class ManageController extends Controller
         $res = DB::table('shop_gz')->where('zid', '=', $id)->delete();
         if($res){
             DB::commit();
-            return redirect($_SERVER['HTTP_REFERER'])->with('success','取消留言成功!');
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','取消关注成功!');
         }else{
             DB::rollBack();
-             return redirect($_SERVER['HTTP_REFERER'])->with('error','取消留言失败!');
+             return redirect($_SERVER['HTTP_REFERER'])->with('error','取消关注失败!');
         } 
     }
 

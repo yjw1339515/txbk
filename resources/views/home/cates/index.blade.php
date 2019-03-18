@@ -1,7 +1,12 @@
-@extends('home.index.index')
+@extends('home.layout')
 @section('content')
     
-
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 <!--End Menu End--> 
 
     <!--End 筛选条件 End-->
@@ -59,21 +64,39 @@
             	
                 <ul class="cate_list">
                     @foreach ($goods as $k => $v)
-                	<li>
-                    	<div class="img"><a href="/home/goods/detail/{{$v->id}}"><img src="/static/home/images/{{$v->gpic}}" width="210" height="185" /></a></div>
-                        <div class="price">
-                            <font>￥<span>{{ $v -> gprice}}</span></font> &nbsp; 
-                        </div>
-                        <div class="name"><a href="#">{{ $v -> gname}}</a></div>
-                        <div class="carbg">
-                            @if(!empty($gz))
-                            <a href="/home/concern/create/{{$v->id}}" class="ss">取消</a>
+                        @if(empty($gz))
+                            <li>
+                                <div class="img"><a href="/home/goods/detail/{{$v->id}}"><img src="/static/home/images/{{$v->gpic}}" width="210" height="185" /></a></div>
+                                <div class="price">
+                                    <font>￥<span>{{ $v -> gprice}}</span></font> &nbsp; 
+                                </div>
+                                <div class="name"><a href="#">{{ $v -> gname}}</a></div>
+                                <div class="carbg">
+                                <a href="/home/concern/create/{{$v->id}}" class="ss">关注</a>
+                                <a href="#" class="j_car">加入购物车</a>
+                                </div>
+                            </li>
                             @else
-                        	<a href="/home/concern/create/{{$v->id}}" class="ss">关注</a>
-                            @endif
-                            <a href="#" class="j_car">加入购物车</a>
-                        </div>
-                    </li>
+                            <li>
+                                <div class="img"><a href="/home/goods/detail/{{$v->id}}"><img src="/static/home/images/{{$v->gpic}}" width="210" height="185" /></a></div>
+                                <div class="price">
+                                    <font>￥<span>{{ $v -> gprice}}</span></font> &nbsp; 
+                                </div>
+                                <div class="name"><a href="#">{{ $v -> gname}}</a></div>
+                                <div class="carbg">
+                                <a href="/home/concern/create/{{$v->id}}" class="ss">
+                                @foreach($gz as $kk => $vv)
+                                @if($v->gname == $vv -> gname)
+                                取消
+                                @else
+                                关注 
+                                @endif
+                                @endforeach
+                                </a>
+                                <a href="#" class="j_car">加入购物车</a>
+                                </div>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
                 
