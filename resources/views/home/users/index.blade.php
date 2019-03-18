@@ -1,5 +1,11 @@
 @extends('home.layout')
 @section('content')
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav">
+@endsection
 <div style="width:100%;background-color:#f6f6f6;">
     <div class="users_info" style="width:75%;height:auto!important;margin-left:12.5%;margin-right:12.5%;margin-top:0px;padding-top:40px;background-color:#f6f6f6;">
         <form class="" action="/users/update/{{$users->uid}}" method="post" enctype="multipart/form-data">

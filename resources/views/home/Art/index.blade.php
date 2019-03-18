@@ -1,5 +1,11 @@
 @extends('home.layout')
 @section('content')
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 <div class="art_body" style="background-image:url('/static/home/images/art_bg.png');background-repeat:repeat-y;width:100%;">
     <div class="art_doc" style="width:88.361749%">
         <div class="art_top" style="width:100%;height:80px;position:relative;top:65px;">

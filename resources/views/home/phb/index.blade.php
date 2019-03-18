@@ -1,5 +1,11 @@
 @extends('home.layout')
 @section('content')
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 <div class="top_block1" style="background-image:url('/static/home/images/bg.png');">
     <div class="top_title">
         <h2 class="top_title_h2" style="color:#796a5f;text-align:center;font-size:38px;font-family:微软雅黑;padding-top:65px;">白库排行榜TOP 10</h2>

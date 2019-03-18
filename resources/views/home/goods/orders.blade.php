@@ -1,6 +1,11 @@
 @extends('home.layout')
 @section('content')
-
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 <div class="i_bg">  
     <div class="content mar_20">
     	<img src="/static/home/images/img2.jpg" />        

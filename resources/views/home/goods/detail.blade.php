@@ -1,6 +1,12 @@
 @extends('home.layout')
 @section('content')
 
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 <div class="i_bg">
     <div class="postion">
         <span class="fl">全部 > 美妆个护 > 香水 > 迪奥 > 迪奥真我香水</span>

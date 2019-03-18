@@ -1,5 +1,11 @@
 @extends('home.layout')
 @section('content')
+@section('menu')
+ <script type="text/javascript" src="/static/home/js/n_nav.js"></script>  
+@endsection
+@section('none')
+<div class="leftNav none">
+@endsection
 <div class="i_bg bg_color">
     <!--Begin 用户中心 Begin -->
   <div class="m_content">
@@ -9,7 +15,6 @@
               <div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                   <li><a href="Member_Order.html" class="now">我的订单</a></li>
-                    <li><a href="Member_Address.html">收货地址</a></li>
                 </ul>
             </div>
         </div>
