@@ -81,6 +81,8 @@ class ArtController extends Controller
        //修改数据
           $art = $request->all();
           //这是一条木有灵魂的注释
+          $file->title = $art['title'];
+          $file->body = $art['body'];
           $file->pic = $new_file;
           $res2 = $file->save();
 
