@@ -33,12 +33,10 @@ class IndexController extends Controller
      */
     public function index(Request $request)
     {
-
-        $link = Link::get();
-        // dd($link);
         // 获取数据库信息
-          $lbts = Lbts::all();
-        $tjws = Tjws::all();
+            $link = Link::get();
+            $lbts = Lbts::all();
+            $tjws = Tjws::all();
         return view('home.index.index',['show'=>true,'link'=>$link,'lbts'=>$lbts,'tjws'=>$tjws]);
 
     }
