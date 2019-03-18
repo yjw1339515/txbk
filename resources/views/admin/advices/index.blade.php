@@ -11,12 +11,10 @@
         <thead>
             <tr >
                   <th>建议编号</th>
-                  <th>建议内容</th>
-                  <th>主题</th>
-                  <th>留言类型</th>
-                  <th>主题</th>
+                  <th>建议类型</th>
                   <th>内容</th>
-                  <th>提交时间</th>
+                  <th>原因</th>
+                  <th>时间</th>
                   <th>相关图片</th>
                   <th>操作</th>
             </tr>
@@ -36,6 +34,7 @@
                         <td>{{$v->content}}</td>
 
                         <td>{{$v->reason}}</td>
+
                         <td>{{$v->created_at}}</td>
                         <td>
               <img src="/uploads/{{$v->gpic}}" width="100px"/>
