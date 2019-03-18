@@ -6,10 +6,8 @@
         <div class="banner">        
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                  @foreach($lbts as $k=>$v)
-                    <li><img src="/uploads/{{$v->logoname}}" width="740" height="401" /></li>
-                   @endforeach
-                </ul>   
+                 
+                </ul>
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
                     <a href="#" class="op_btn op_next"><span></span></a>
@@ -167,9 +165,7 @@
         <div class="i_sell">
             <div id="imgPlay">
                 <ul class="imgs" id="actor">
-                @foreach($tjws as $k=>$v)
-                    <li><a href="#"><img src="/uploads/{{$v->tpic}}" width="211" height="357" /></a></li>
-                @endforeach
+              
                 </ul>
                 <div class="previ">上一张</div>
                 <div class="nexti">下一张</div>

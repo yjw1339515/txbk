@@ -34,9 +34,7 @@
                 </td>
               </tr>
             </table>
-            <div class="two_t">
-            	<span class="fr"><a href="#"></a></span>收货人信息
-            </div>
+ 
             <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
               <tr height="70">
                 <td align="right">

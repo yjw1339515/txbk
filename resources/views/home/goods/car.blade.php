@@ -32,7 +32,7 @@
                     </div>
                 </td>
                 <td align="center" id ="xiaoji{{$v["gid"]}}"  style="color:#ff4e00;" value="">{{ $v['cnt']*$v['gprice'] }}</td>
-                <td align="center"><a onclick="shanchu(this,{{$v['gid']}});">删除</a>&nbsp; &nbsp;<a href="#">关注</a></td>
+                <td align="center">&nbsp; &nbsp;<a href="#">关注</a></td>
            </tr>
         @endforeach
     @endif
@@ -78,6 +78,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+// alert($);
     // 删除的效果
     function shanchu(obj,gid)
     {
@@ -97,7 +98,7 @@
 
       //加的效果
     function goodsJia(obj,gid,gprice){
-
+// alert($);
           var n=$(obj).prev().val();
 
           var num=parseInt(n)+1;
@@ -119,7 +120,6 @@
 
 
     }
-
   //减的效果
     function goodsJian(obj,gid,gprice){
 

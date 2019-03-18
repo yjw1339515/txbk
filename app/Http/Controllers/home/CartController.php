@@ -21,7 +21,7 @@ class CartController extends Controller
     public function addcar(Request $request)
     {
 
-        session_start();
+        // session_start();
         // $_SESSION['car'] = [];
 
         $gid = $request->input('gid');
@@ -93,7 +93,7 @@ class CartController extends Controller
      */
     public function car(Request $request)
     {
-        session_start();
+        // session_start();
         $sumprice = 0;
          if (!array_key_exists("car", $_SESSION)) {
             $goods = [];
@@ -112,7 +112,7 @@ class CartController extends Controller
     }
     public function goodsUpdate(Request $request)
     {
-        session_start();
+        // session_start();
         $gid = $request->input('gid');
         $cnt = $request->input('cnt');
         $gprice = $request->input('gprice');
@@ -133,7 +133,7 @@ class CartController extends Controller
     public function destroy(Request $request)
     {
 
-        session_start();
+        // session_start();
         $id = $request->input('gid');
         if (array_key_exists($id,$_SESSION['car'])) {
             unset($_SESSION['car'][$id]);
@@ -156,7 +156,7 @@ class CartController extends Controller
      */
     public function orders()
     {
-        session_start();
+        // session_start();
         $goods = $_SESSION['car'];
 
         // $users =DB::table('Users')->get();
@@ -171,7 +171,7 @@ class CartController extends Controller
     public function qry(Request $request)
     {
          DB::beginTransaction();
-        session_start();
+        // session_start();
        $goods =  $_SESSION['car'];
        $orders = Orders::createOrder($goods);
        unset($_SESSION['car']);
