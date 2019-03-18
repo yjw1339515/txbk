@@ -53,7 +53,7 @@
                         </td>
                         <td>{{$v->status==1?'激活':'禁用'}}</td>
                         <td>{{$v->gdesc}}</td>
-                        <td>{{$v->goods->cname}}</td>
+                        <td>{{$v->goods['cname']}}</td>
                         <td>
               <a href="/goods/{{$v->id}}/edit" class="btn btn-info">修改</a>
               <form action="/goods/{{$v->id}}" method="post" style="display: inline-block">
