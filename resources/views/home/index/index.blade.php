@@ -854,9 +854,4 @@
         </div>
     </div>
     <!--End 猜你喜欢 End-->
-<<<<<<< HEAD
-    
-=======
->>>>>>> 9fb53640e81fdf7252e9875a4386cb5d0e512809
-
-@stop
+@endsection

@@ -31,7 +31,8 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         
-        return view('home.index.index',['show'=>true]);
+        return view('home.index.index');
+        
     }
 
     /**

@@ -5,6 +5,7 @@ use Illuminate\Support\ServiceProvider;
 use View;
 
 use App\Http\Controllers\home\IndexController;
+use App\Http\Controllers\home\CartController;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,8 @@ class AppServiceProvider extends ServiceProvider
 
         // 数据共享
        View::share('common_cates_data', IndexController::getPidCates());
-
+       View::share('common_goods_data', CartController::getCarGoods());
+       
     }
 
     /**

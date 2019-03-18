@@ -3,6 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="/static/home/css/style.css" />
+   <!-- <link rel="stylesheet" href="/static/home/layui/layui/css/layui.css"> -->
+  <script src="/static/home/layui/layui/layui.js"></script>
+  <script src="/static/home/layui/layui/layui.all.js"></script>
     <!--[if IE 6]>
     <script src="/static/home/js/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -58,16 +61,22 @@
             <!-- 显示错误消息 开始 -->
                     @if (count($errors) > 0)
                             <div class="mws-form-message error">
-                                <ul>
+                                <script>
                                     @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+                                         
+                  
+                                    layer.alert("{{$error}}");
+               
                                     @endforeach
-                                </ul>
+                                </script>
                             </div>
                         @endif
                     @if (session('error'))
                         <div class="mws-form-message error">
-                            {{ session('error') }}
+                           <script>
+                  
+                   layer.alert("{{ session('error') }}");
+               </script>
                         </div>
                     @endif
                      <!-- 显示错误消息 结束 -->
@@ -114,6 +123,7 @@
     </div>
 </div>
 <!--End Login End--> 
+
 @show
 <!--Begin Footer Begin-->
 <div class="btmbg">
@@ -131,3 +141,4 @@
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
 </html>
+              

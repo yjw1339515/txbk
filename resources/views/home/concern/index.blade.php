@@ -72,4 +72,4 @@
     </div>
 	<!--End 用户中心 End--> 
 
-@stop
+@endsection

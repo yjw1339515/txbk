@@ -3,6 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link type="text/css" rel="stylesheet" href="/static/home/css/style.css" />
+    <script src="/static/home/layui/layui/layui.js"></script>
+    <script src="/static/home/layui/layui/layui.all.js"></script>
     <!--[if IE 6]>
     <script src="/static/home/js/iepng.js" type="text/javascript"></script>
         <script type="text/javascript">
@@ -24,10 +26,25 @@
     <script type="text/javascript" src="/static/home/js/bban.js"></script>
     <script type="text/javascript" src="/static/home/js/hban.js"></script>
     <script type="text/javascript" src="/static/home/js/tban.js"></script>
+    <script type="text/javascript" src="/static/home/js/.js"></script>    
+            
+    <script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script> 
+        
+    <script type="text/javascript" src="/static/home/js/p_tab.js"></script>
+    
+    <script type="text/javascript" src="/static/home/js/shade.js"></script>
 
    
-	<script type="text/javascript" src="/static/home/js/lrscroll_1.js"></script>
+                
+    <script type="text/javascript" src="/static/home/js/n_nav.js"></script>   
+    
+    <script type="text/javascript" src="/static/home/js/num.js">
+        var jq = jQuery.noConflict();
+    </script>     
+    
    
+    <!-- <script type="text/javascript" src="/static/home/js/n_nav.js"></script> -->
+
 <title>天下白库商城</title>
    
 
@@ -81,7 +98,7 @@
     </div>
     @if(empty(session('homeUsers')))
     <div class="i_car">
-    	<div class="car_t">购物车 [ <span>3</span> ]</div>
+    	<div class="car_t">购物车 [ <span>0</span> ]</div>
         <div class="car_bg">
        		<!--Begin 购物车未登录 Begin-->
         	<div class="un_login">还未登录！<a href="/home/login/login" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
@@ -93,6 +110,7 @@
             <!--End 购物车已登录 End-->
         </div>
     </div>
+    
     @else
     <div class="i_car">
         <div class="car_t">购物车 [ <span>3</span> ]</div>
@@ -100,14 +118,16 @@
             <ul class="cars">
 
                 <div class="un_login"></div>
+                @foreach($common_goods_data as $k => $v)
             	<li>
-                	<div class="img"><a href="#"><img src="/static/home/images/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
+                	<div class="img"><a href="#"><img src="/static/home/images/{{$v['gpic']}}" width="58" height="58" /></a></div>
+                    <div class="name"><a href="#">{{$v['gname']}}</a></div>
+                    <div class="price"><font color="#ff4e00">￥{{$v['gprice']}}</font> X{{$v['cnt']}}</div>
                 </li>
+                @endforeach
             </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="#">去购物车结算</a></div>
+            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span></span></div>
+            <div class="price_a"><a href="">去购物车结算</a></div>
             <!--End 购物车已登录 End-->
         </div>
     </div>
@@ -121,8 +141,8 @@
     	<div class="nav">
         	<div class="nav_t">全部商品分类</div>
             
-            <div class="leftNav">
-           
+            <div class="leftNav none">
+            
                 <ul>
                     <a href="" hidden>{{ $num = 0 }}</a>
                     @foreach ( $common_cates_data as $k => $v)
@@ -171,10 +191,29 @@
         <div class="m_ad">中秋送好礼！</div>
     </div>
 </div>
+<!-- 显示错误消息 开始 -->
+            @if (session('success'))
+                <div class="mws-form-message success">
+                    <script>
+                  
+                   layer.alert("{{ session('success') }}");
+               </script>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="mws-form-message error">
+                   <script>
+                  
+                   layer.alert("{{ session('error') }}");
+               </script>
+                </div>
+            @endif
+             <!-- 显示错误消息 结束 -->
 <!--End Menu End-->
 @section('content')
 
-
+ 
 @show
     <!--Begin Footer Begin -->
     <div class="b_btm_bg b_btm_c">
@@ -286,7 +325,7 @@
 
 </body>
 
-
+<script src="/static/home/js/ShopShow.js"></script>
 <!--[if IE 6]>
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
