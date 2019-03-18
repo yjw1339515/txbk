@@ -10,7 +10,7 @@
     <div class="content mar_20">
     	<div class="two_bg">
         	<div class="two_t">
-            	<span class="fr"><a href="#">修改</a></span>商品列表
+            	<span class="fr"><a href="#"></a></span>商品列表
             </div>
             <table border="0" class="car_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
@@ -35,30 +35,8 @@
               </tr>
             </table>
             <div class="two_t">
-            	<span class="fr"><a href="#">修改</a></span>收货人信息
+            	<span class="fr"><a href="#"></a></span>收货人信息
             </div>
-            @foreach($users as $k=>$v)
-            <table border="0" class="peo_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
-              <tr>
-                <span>收货地址 :</span>
-                <input type="text" name="addr" value="{{$v->addr}}" placeholder="" style="display:block;width:800px;height:50px;margin-left:100px;"><br><br>
-              </tr>
-            </table>
-            @endforeach
-
-
-            
-            
-            <div class="two_t">
-            	支付方式
-            </div>
-            <ul class="pay">
-                <li class="checked">余额支付<div class="ch_img"></div></li>
-                <li>银行亏款/转账<div class="ch_img"></div></li>
-                <li>货到付款<div class="ch_img"></div></li>
-                <li>支付宝<div class="ch_img"></div></li>
-            </ul>
-   
             <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
               <tr height="70">
                 <td align="right">

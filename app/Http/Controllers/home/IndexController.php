@@ -32,7 +32,8 @@ class IndexController extends Controller
     {
 
         $link = Link::get();
-        return view('home.index.index',['show'=>true,'link'->$link]);
+        // dd($link);
+        return view('home.index.index',['show'=>true,'link'=>$link]);
     }
 
     /**

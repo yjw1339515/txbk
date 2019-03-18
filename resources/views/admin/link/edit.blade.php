@@ -20,7 +20,6 @@
                         <form class="mws-form" action="/admin/link/update/{{ $link->id }}" method="post">
                         {{ csrf_field() }}
                             <div class="mws-form-inline">
-
                                 <div class="mws-form-row">
                                     <label class="mws-form-label">链接名称:</label>
                                     <div class="mws-form-item">
@@ -36,9 +35,8 @@
                                  <div class="mws-form-row">
                                     <label class="mws-form-label">图片:</label>
                                     <div class="mws-form-item">
-                                        <img src="{{URL::asset($link->images)}}" value="{{ $link->images }}">
+                                        <img src="/static/admin/images/{{$link->images}}" value="{{ $link->images }}">
                                     <input type="file" name="images" placeholder="">
-
                                     </div>
                                 </div>
                             </div>
@@ -48,6 +46,6 @@
                                 <input type="reset" value="重置" class="btn ">
                     </div>
                         </form>
-                    </div>      
+                    </div>   
                 </div>
 @endsection

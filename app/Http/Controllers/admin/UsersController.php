@@ -61,10 +61,11 @@ class UsersController extends Controller
         $users->sex = $data['sex']; 
         $users->upwd = Hash::make($data['upwd']); 
         $users->email = $data['email']; 
-        $users->tel = $data['tel']; 
-        $id = $users->id;//接收返回的id号
+        $users->tel = $data['tel'];
+        // dump($users);die;
+        // dump($users->save());die;
         $res = $users->save();
-
+        // dump($res);die;
         if($res){
             DB::commit();
             return redirect('admin/users/index')->with('success','添加成功!');

@@ -91,7 +91,7 @@ Route::group(['middleware'=>'login'],function(){
 // 佳旗前台路由
 
 // 前台首页
-Route::get('home/index/index','home\IndexController@index');
+Route::get('/home/index/index','home\IndexController@index');
 //前台登录
 Route::get('home/login/login','home\LoginController@login');
 Route::post('home/login/dologin','home\LoginController@dologin');
@@ -186,4 +186,4 @@ Route::post('/admin/orders/update/{id}','admin\OrdersController@update');
 //注册资源路由器
  Route::resource('/home/login/regist','home\registsController');
  //前台数据显示
- Route::get('/home/index/index','home\HomeController@lbts');
+ // Route::get('/home/index/index','home\HomeController@lbts');

@@ -44,13 +44,13 @@ class LoginController extends Controller
             //错误返回原来页面
             return back()->with('error','账号或密码错误!');
         }
-        $link = Link::get();
+      
         if($users){
             $data = $users[0];
             //把数据存入session
             session(['homeUsers'=> $data]); 
             // 成功后跳转
-            return redirect('/home/index/index',['link'=>$link])->with('success','登录成功!');
+            return redirect('/home/index/index')->with('success','登录成功!');
         }
        
       

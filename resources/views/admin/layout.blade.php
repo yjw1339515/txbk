@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="/static/admin/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/static/admin/css/themer.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/static/admin/css/page_page.css" media="screen">
-<title>MWS Admin - Dashboard</title>
+<title>天下白库</title>
 
 </head>
 
@@ -48,7 +48,7 @@
 
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="/static/admin/images/mws-logo.png" alt="mws admin">
+                <img src="/static/admin/images/logo.png" alt="mws admin">
             </div>
         </div>
 

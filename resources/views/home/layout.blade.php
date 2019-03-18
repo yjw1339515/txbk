@@ -262,14 +262,14 @@
     @if(!empty($link))
     @foreach($link as $k=>$v)
         @if($v['images'])
-        <a target="_blank" href="https://{{$v['url']}}" style="float:left;">
+        <a target="_blank" href="{{$v['url']}}" style="float:left;">
             <span style="display:bloak;">
-                <img  src="{{URL::asset($v['images'])}}" style="width:70px;height:30px;border-radius:4px" /> 
+                <img  src="{{$v['images']}}" style="width:70px;height:30px;border-radius:4px" /> 
             </span>
         </a>
         <b>|</b>
         @else
-        <a target="_blank" href="https://{{$v['url']}}">
+        <a target="_blank" href="{{$v['url']}}">
             <span style="margin-left:5px;">{{$v['title']}}</span>
         </a>
         <b>|</b>

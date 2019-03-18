@@ -142,12 +142,12 @@ class CartController extends Controller
         session_start();
         $goods = $_SESSION['car'];
 
-        $users =DB::table('Users')->get();
+        // $users =DB::table('Users')->get();
         $sum = 0;
         foreach($_SESSION["car"] as $k=>$v){
             $sum += $v['cnt']*$v['gprice'];
         }
-        return view('home/goods/orders',['goods'=>$goods,'sum'=>$sum,'users'=>$users]);
+        return view('home/goods/orders',['goods'=>$goods,'sum'=>$sum]);
     }
 
    
