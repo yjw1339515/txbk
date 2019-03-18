@@ -9,7 +9,7 @@ class Goods extends Model
 {
     public $table = 'shop_goods';
 
-
+      public $timestamps = false;
 
     // 多对一
       public function goods()

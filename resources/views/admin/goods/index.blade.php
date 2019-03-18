@@ -45,14 +45,15 @@
             @foreach($data as $k=>$v)
                     <tr class="odd" align="center">
                         <td>{{$v->id}}</td>
-                        <td>{{$v->gname}}</td>
+                        <td style="overflow: hidden;width:100px;">{{$v->gname}}</td>
                         <td>{{$v->gprice}}</td>
                         <td>{{$v->stock}}</td>
                         <td>
               <img src="/uploads/{{$v->gpic}}" width="100px"/>
                         </td>
                         <td>{{$v->status==1?'激活':'禁用'}}</td>
-                        <td>{{$v->gdesc}}</td>
+                        <td style="width:100px; ">{{$v->gdesc}}</td>
+
                         <td>{{$v->goods['cname']}}</td>
                         <td>
               <a href="/goods/{{$v->id}}/edit" class="btn btn-info">修改</a>
