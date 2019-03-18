@@ -17,7 +17,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form class="mws-form" action="/admin/art/update/{{ $art->id }}" method="post">
+                        <form class="mws-form" action="/admin/art/update/{{ $art->id }}" method="post"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="mws-form-inline">
                                 <div class="mws-form-row">
@@ -29,7 +29,7 @@
                                  <div class="mws-form-row">
                                     <label class="mws-form-label">文章标题图:</label>
                                     <div class="mws-form-item">
-                                        <img src="{{$art->pic}}" value="{{ $art->pic }}">
+                                        <img src="/uploads/{{$art->pic}}" value="{{$art->pic}}">
                                     <input type="file" name="pic" class="layui-input" placeholder="">
 
                                     </div>
