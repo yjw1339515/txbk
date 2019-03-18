@@ -110,7 +110,7 @@
                 	<span style="font-family:'宋体';" class="fl">
                     	<label class="r_rad"><input type="checkbox" /></label><label class="r_txt">记住密码</label>
                     </span>
-                    <span class="fr"><a href="#" style="color:#ff4e00;">忘记密码</a></span>
+                    <span class="fr" id="0000"><a href="#" style="color:#ff4e00;">忘记密码</a></span>
                 </td>
               </tr>
               <tr height="60">
@@ -141,4 +141,17 @@
 <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
 <![endif]-->
 </html>
-              
+  <script>
+  $('#0000').click(function(){
+
+    layer.prompt({title: '输入邮箱账号', formType: 1}, function(email,index){
+      $.post('/home/login/email',{'_token':'{{csrf_token()}}','email':email},function(){
+        alert('发送成功');
+       
+
+      });
+     layer.close(index);
+});
+
+  });
+  </script>
