@@ -35,7 +35,13 @@ class IndexController extends Controller
     {
         // 获取数据库信息
             $link = Link::get();
-        return view('home.index.index',['link'=>$link]);
+            $lbts = Lbts::all();
+            $tjws = Tjws::all();
+        return view('home.index.index',['link'=>$link,'lbts'=>$lbts,'tjws'=>$tjws]);
+
+
+
+
     }
 
     /**
